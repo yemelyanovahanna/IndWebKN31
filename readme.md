@@ -1,0 +1,1 @@
+This is our Ind Task for Development of web-applications, we are students of CS-31: Yemelianova Hanna, Shylova Oleksandra, Chernenko Leia
