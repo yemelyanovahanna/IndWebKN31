@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Київ Комун Сервіс | Особистий кабінет</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h1 class="header-title">Київ Комун Сервіс | Особистий кабінет</h1>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <p class="user-name">Олег Сігма</p>
+                <p class="user-subtitle">Мій профіль і адреси</p>
+            </div>
+            <div class="user-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main-container">
+    <div class="content-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            
+            <div class="sidebar-card">
+                <nav class="nav-menu">
+                    <a href="profile.html" class="nav-item active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Мій профіль і адреси</span>
+                    </a>
+
+                    <a href="accounts.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Особові рахунки і договори</span>
+                    </a>
+
+                    <a href="meters.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18"></path>
+                            <path d="M12 3v18"></path>
+                        </svg>
+                        <span>Лічильники</span>
+                    </a>
+                </nav>
+            </div>
+
+            
+            <div class="sidebar-content">
+                <h2 class="sidebar-title">Адреси</h2>
+                <div class="address-list-sidebar" id="addressListSidebar"></div>
+            </div>
+
+            <button class="mobile-logout-btn">Вийти</button>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <section class="profile-card">
+                <h2 class="profile-title">Мій профіль і адреси</h2>
+
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="profile-name">Олег Сігма</p>
+                        <p class="profile-id">ID користувача: <span>000234</span></p>
+                    </div>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="field-group">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" value="olegsigma@sigmoid.ua">
+                    </div>
+                    <div class="field-group">
+                        <label for="phone">Телефон</label>
+                        <input id="phone" type="tel" value="+380 (097) 007-07-07">
+                    </div>
+                </div>
+
+                <div class="addresses-main">
+                    <p class="addresses-label">Адреси</p>
+                    <div class="address-list-main" id="addressListMain"></div>
+                </div>
+
+                <button class="change-password-btn" type="button">
+                    Змінити пароль
+                </button>
+            </section>
+        </main>
+    </div>
+</div>
+
+<script src="js/profile.js"></script>
+</body>
+</html>
