@@ -1,5 +1,5 @@
 /* =========================
-   1. RESET & БАЗА
+   1. RESET
    ========================= */
 * {
     margin: 0;
@@ -25,7 +25,7 @@ body {
 .font-medium { font-weight: 500; }
 
 /* =========================
-   2. ХЕДЕР (усі сторінки)
+   2. ХЕДЕР 
    ========================= */
 
 .header {
@@ -37,7 +37,7 @@ body {
     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
-/* І на головній (.header-content), і в кабінеті (.header-container) */
+
 .header-content,
 .header-container {
     max-width: 1280px;
@@ -80,7 +80,7 @@ body {
     color: #2563eb;
 }
 
-/* Відсуває блок контактів вправо між логотипом і юзером */
+
 .header-spacer {
     flex: 1;
 }
@@ -223,7 +223,7 @@ body {
     overflow: hidden;
 }
 
-/* Для логіки "жива карусель" */
+/* Для логіки карусель*/
 #newsWrapper {
     display: flex;
     gap: 1rem;
@@ -410,7 +410,7 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Форми (спільні) */
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -438,7 +438,7 @@ body {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Забули пароль */
+
 .forgot-password {
     text-align: right;
     margin-top: 0.5rem;
@@ -1668,7 +1668,7 @@ body {
     background: #ffffff;
 }
 
-/* Адреси в основному блоці */
+
 .addresses-main {
     margin-bottom: 1rem;
 }
