@@ -121,9 +121,29 @@ const services = {
         icon: '🏢',
         serialNumber: 'N/A',
         type: 'фіксована плата',
-        unit: '',
-        lastReading: null,
-        status: 'inactive'
+        unit: '₴',
+        lastReading: {
+            value: '870',
+            date: '03.10.2025',
+            time: '09:00'
+        },
+        verificationDate: null,
+        verificationExpiry: null,
+        status: 'active',
+        history: [
+            { date: '03.10.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування ліфта', submitted: true },
+            { date: '01.09.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт дверей', submitted: true },
+            { date: '01.08.2025', value: '870', consumption: 'Електрика, Прибирання, Дезінфекція', submitted: true },
+            { date: '01.07.2025', value: '870', consumption: 'Електрика, Прибирання, Вивіз сміття', submitted: true },
+            { date: '01.06.2025', value: '870', consumption: 'Електрика, Прибирання, Підміна лампочок', submitted: true },
+            { date: '01.05.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування пожежної системи', submitted: true },
+            { date: '01.04.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт даху', submitted: true },
+            { date: '01.03.2025', value: '870', consumption: 'Електрика, Прибирання, Обрізка дере', submitted: true },
+            { date: '01.02.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт під’їзду', submitted: true },
+            { date: '01.01.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування ліфта', submitted: true },
+            { date: '01.12.2024', value: '870', consumption: 'Електрика, Прибирання, Вивіз сміття', submitted: true },
+            { date: '01.11.2024', value: '870', consumption: 'Електрика, Прибирання, Підміна лампочок', submitted: true }
+        ]
     }
 };
 
@@ -202,9 +222,9 @@ const emptyState = document.getElementById('emptyState');
 const meterValueInput = document.getElementById('meterValueInput');
 const consumptionInfo = document.getElementById('consumptionInfo');
 
-// --- Параметри пагінації ---
-let historyVisibleCount = 5;   // скільки рядків зараз показано
-const historyStep = 5;         // скільки догружаємо при кліку
+
+let historyVisibleCount = 5;   
+const historyStep = 5;         
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 const shownCountText = document.getElementById("shownCountText");
 
@@ -218,7 +238,7 @@ function renderHistory() {
         <tr>
             <td>${entry.date}</td>
             <td class="text-right font-medium">${entry.value} ${service.unit}</td>
-            <td class="text-right">${entry.consumption} ${service.unit}</td>
+            <td class="text-right">${currentService === 'maintenance' ? entry.consumption : `${entry.consumption} ${service.unit}`}</td>
             <td class="text-center">
                 ${entry.submitted
                     ? `<span class="status-badge status-success">
@@ -230,10 +250,8 @@ function renderHistory() {
         </tr>
     `).join("");
 
-    // Оновити текст "Показано X з Y"
     shownCountText.textContent = `Показано ${slice.length} з ${service.history.length} записів`;
 
-    // Приховати кнопку, якщо закінчилися записи
     if (historyVisibleCount >= service.history.length) {
         loadMoreBtn.classList.add("hidden");
     } else {
@@ -241,7 +259,6 @@ function renderHistory() {
     }
 }
 
-// Кнопка "Показати більше"
 if (loadMoreBtn) {
     loadMoreBtn.addEventListener("click", () => {
         historyVisibleCount += historyStep;
@@ -321,7 +338,7 @@ function updateServiceDisplay() {
 
 function updateHistoryTable() {
 
-    historyVisibleCount = 5;  // скидати пагінацію при зміні лічильника
+    historyVisibleCount = 5;  
     renderHistory();
 
     const service = services[currentService];
