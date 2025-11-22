@@ -1413,7 +1413,7 @@ body {
 /* Інфо по лічильнику */
 .info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
     gap: 1rem;
 }
 
@@ -1422,7 +1422,21 @@ body {
     background-color: #f9fafb;
     border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    justify-content: center;   
+    text-align: center;       
 }
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+}
+
 
 .info-card-highlight {
     background-color: #eff6ff;
@@ -1432,18 +1446,19 @@ body {
 .info-card-header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-bottom: 0.75rem;
+    width: 100%;
 }
 
-.info-card-header svg {
-    stroke: #6b7280;
+.empty-placeholder {
+    visibility: hidden;
+    height: 1rem; 
 }
 
-.info-card-header p {
-    font-size: 0.875rem;
-    color: #6b7280;
-}
 
 .info-card-highlight .info-card-header p {
     color: #1e40af;
@@ -1464,6 +1479,9 @@ body {
     font-weight: 700;
     color: #1e3a8a;
 }
+.info-card-value-large {
+    white-space: nowrap;
+}
 
 .info-card-detail {
     font-size: 0.75rem;
@@ -1475,6 +1493,23 @@ body {
     font-size: 0.75rem;
     color: #2563eb;
     margin-top: 0.25rem;
+}
+
+.info-card-detail,
+.info-card-detail-highlight {
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .info-cards {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Кнопки в лічильниках */
@@ -1959,3 +1994,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+

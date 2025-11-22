@@ -176,7 +176,7 @@ function renderOverview() {
                         <p class="payment-amount">850,00 грн</p>
                     </div>
                 </div>
-                <button class="link-btn" style="margin-top: 1rem;">Всі платежі і борги →</button>
+                <button class="link-btn view-payments-btn" style="margin-top: 1rem;">Всі платежі і борги →</button>
             </div>
 
             <div class="card">
@@ -207,7 +207,7 @@ function renderOverview() {
                 </div>
             </div>
 
-            <button class="btn-primary">Оплатити зараз</button>
+            <button class="btn-primary pay-now-btn">Оплатити зараз</button>
         </div>
     `;
 }
@@ -275,7 +275,7 @@ function renderPayment() {
                         </div>
                     `).join('')}
                 </div>
-                <button class="link-btn">Платежі і борги →</button>
+                <button class="link-btn">Більше →</button>
             </div>
 
             <div class="card">
@@ -411,8 +411,37 @@ function renderContent() {
     else if (activeTab === 'payment') content.innerHTML = renderPayment();
     else if (activeTab === 'contract') content.innerHTML = renderContract();
 
-    attachMeterButtons();  
+    attachMeterButtons();
+    document.querySelectorAll('.view-payments-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeTab = "payment";
+
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.tab === 'payment') {
+                    tab.classList.add('active');
+                }
+            });
+
+            renderContent();
+        });
+    });
+    document.querySelectorAll('.pay-now-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeTab = "payment";
+
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.tab === 'payment') {
+                    tab.classList.add('active');
+                }
+            });
+
+            renderContent();
+        });
+    });
 }
+
 
 function attachMeterButtons() {
     document.querySelectorAll('.meter-btn').forEach(btn => {
