@@ -19,7 +19,14 @@ const services = {
             { date: '01.09.2025', value: '15108', consumption: '298', submitted: true },
             { date: '01.08.2025', value: '14810', consumption: '312', submitted: true },
             { date: '01.07.2025', value: '14498', consumption: '285', submitted: true },
-            { date: '01.06.2025', value: '14213', consumption: '301', submitted: true }
+            { date: '01.06.2025', value: '14213', consumption: '301', submitted: true },
+            {date: '01.05.2025', value: '13912', consumption: '276', submitted: true },
+            { date: '01.04.2025', value: '13636', consumption: '295', submitted: true },
+            { date: '01.03.2025', value: '13341', consumption: '288', submitted: true },
+            { date: '01.02.2025', value: '13053', consumption: '274', submitted: true },
+            { date: '01.01.2025', value: '12779', consumption: '269', submitted: true },
+            { date: '01.12.2024', value: '12510', consumption: '281', submitted: true },
+            { date: '01.11.2024', value: '12229', consumption: '260', submitted: true }
         ]
     },
     cold_water: {
@@ -41,7 +48,14 @@ const services = {
             { date: '01.09.2025', value: '233', consumption: '11', submitted: true },
             { date: '01.08.2025', value: '222', consumption: '13', submitted: true },
             { date: '01.07.2025', value: '209', consumption: '10', submitted: true },
-            { date: '01.06.2025', value: '199', consumption: '12', submitted: true }
+            { date: '01.06.2025', value: '199', consumption: '12', submitted: true },
+            { date: '01.05.2025', value: '187', consumption: '11', submitted: true },
+            { date: '01.04.2025', value: '176', consumption: '9', submitted: true },
+            { date: '01.03.2025', value: '167', consumption: '10', submitted: true },
+            { date: '01.02.2025', value: '157', consumption: '8', submitted: true },
+            { date: '01.01.2025', value: '149', consumption: '9', submitted: true },
+            { date: '01.12.2024', value: '140', consumption: '7', submitted: true },
+            { date: '01.11.2024', value: '133', consumption: '8', submitted: true }
         ]
     },
     hot_water: {
@@ -63,7 +77,14 @@ const services = {
             { date: '01.09.2025', value: '170', consumption: '7', submitted: true },
             { date: '01.08.2025', value: '163', consumption: '9', submitted: true },
             { date: '01.07.2025', value: '154', consumption: '6', submitted: true },
-            { date: '01.06.2025', value: '148', consumption: '8', submitted: true }
+            { date: '01.06.2025', value: '148', consumption: '8', submitted: true },
+            { date: '01.05.2025', value: '140', consumption: '7', submitted: true },
+            { date: '01.04.2025', value: '133', consumption: '8', submitted: true },
+            { date: '01.03.2025', value: '125', consumption: '6', submitted: true },
+            { date: '01.02.2025', value: '119', consumption: '7', submitted: true },
+            { date: '01.01.2025', value: '112', consumption: '6', submitted: true },
+            { date: '01.12.2024', value: '106', consumption: '7', submitted: true },
+            { date: '01.11.2024', value: '99', consumption: '6', submitted: true }
         ]
     },
     heating: {
@@ -85,7 +106,14 @@ const services = {
             { date: '01.09.2025', value: '10.2', consumption: '0.8', submitted: true },
             { date: '01.08.2025', value: '9.4', consumption: '0.5', submitted: true },
             { date: '01.07.2025', value: '8.9', consumption: '0.4', submitted: true },
-            { date: '01.06.2025', value: '8.5', consumption: '0.6', submitted: true }
+            { date: '01.06.2025', value: '8.5', consumption: '0.6', submitted: true },
+            { date: '01.05.2025', value: '7.9', consumption: '0.5', submitted: true },
+            { date: '01.04.2025', value: '7.4', consumption: '0.7', submitted: true },
+            { date: '01.03.2025', value: '6.7', consumption: '0.6', submitted: true },
+            { date: '01.02.2025', value: '6.1', consumption: '0.5', submitted: true },
+            { date: '01.01.2025', value: '5.6', consumption: '0.6', submitted: true },
+            { date: '01.12.2024', value: '5.0', consumption: '0.7', submitted: true },
+            { date: '01.11.2024', value: '4.3', consumption: '0.5', submitted: true }
         ]
     },
     maintenance: {
@@ -161,9 +189,6 @@ if (requestedType && typeMap[requestedType]) {
     currentService = typeMap[requestedType];
 }
 
-
-
-
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const menuIcon = document.getElementById('menuIcon');
 const closeIcon = document.getElementById('closeIcon');
@@ -176,6 +201,53 @@ const submitFormContainer = document.getElementById('submitFormContainer');
 const emptyState = document.getElementById('emptyState');
 const meterValueInput = document.getElementById('meterValueInput');
 const consumptionInfo = document.getElementById('consumptionInfo');
+
+// --- Параметри пагінації ---
+let historyVisibleCount = 5;   // скільки рядків зараз показано
+const historyStep = 5;         // скільки догружаємо при кліку
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+const shownCountText = document.getElementById("shownCountText");
+
+function renderHistory() {
+    const service = services[currentService];
+    const tbody = document.getElementById("historyTableBody");
+
+    const slice = service.history.slice(0, historyVisibleCount);
+
+    tbody.innerHTML = slice.map(entry => `
+        <tr>
+            <td>${entry.date}</td>
+            <td class="text-right font-medium">${entry.value} ${service.unit}</td>
+            <td class="text-right">${entry.consumption} ${service.unit}</td>
+            <td class="text-center">
+                ${entry.submitted
+                    ? `<span class="status-badge status-success">
+                        ✓ Прийнято
+                       </span>`
+                    : `<span class="status-badge status-pending">Очікує</span>`
+                }
+            </td>
+        </tr>
+    `).join("");
+
+    // Оновити текст "Показано X з Y"
+    shownCountText.textContent = `Показано ${slice.length} з ${service.history.length} записів`;
+
+    // Приховати кнопку, якщо закінчилися записи
+    if (historyVisibleCount >= service.history.length) {
+        loadMoreBtn.classList.add("hidden");
+    } else {
+        loadMoreBtn.classList.remove("hidden");
+    }
+}
+
+// Кнопка "Показати більше"
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+        historyVisibleCount += historyStep;
+        renderHistory();
+    });
+}
 
 
 mobileMenuBtn.addEventListener('click', () => {
@@ -248,40 +320,17 @@ function updateServiceDisplay() {
 
 
 function updateHistoryTable() {
+
+    historyVisibleCount = 5;  // скидати пагінацію при зміні лічильника
+    renderHistory();
+
     const service = services[currentService];
     const tbody = document.getElementById('historyTableBody');
     
-    if (!service.history) {
+    if (!service.history || service.history.length === 0) {
         tbody.innerHTML = '<tr><td colspan="4" class="text-center">Немає даних</td></tr>';
         return;
     }
-    
-    tbody.innerHTML = service.history.map(entry => `
-        <tr>
-            <td>${entry.date}</td>
-            <td class="text-right font-medium">${entry.value} ${service.unit}</td>
-            <td class="text-right">${entry.consumption} ${service.unit}</td>
-            <td class="text-center">
-                ${entry.submitted ? `
-                    <span class="status-badge status-success">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        Прийнято
-                    </span>
-                ` : `
-                    <span class="status-badge status-pending">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        Очікує
-                    </span>
-                `}
-            </td>
-        </tr>
-    `).join('');
 }
 
 
