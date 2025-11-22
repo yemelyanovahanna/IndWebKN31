@@ -49,8 +49,10 @@
     </header>
     
     <div class="main-content">
+        
         <div class="news-carousel">
             <button class="carousel-btn prev" onclick="prevNews()"><i class="fas fa-chevron-left"></i></button>
+            
             <div class="news-wrapper" id="newsWrapper">
                 <div class="news-card">
                     <div class="news-image"><i class="fas fa-bolt" style="font-size: 2rem; color: #9ca3af;"></i></div>
@@ -73,6 +75,7 @@
                     <p class="news-content">Онлайн сервіси тепер доступні у мобільному додатку</p>
                 </div>
             </div>
+            
             <button class="carousel-btn next" onclick="nextNews()"><i class="fas fa-chevron-right"></i></button>
         </div>
 
@@ -83,19 +86,22 @@
             <button class="action-btn">Підтримка/Звернення</button>
         </div>
 
-        <div class="home-grid">
-            <div class="grid-left">
-                <div class="info-card">
-                    <h3>Немає світла/води?</h3>
-                </div>
-                <div class="info-card">
-                    <h3>Заключити договір</h3>
+        <section class="bottom-section">
+
+            <div class="left-boxes">
+                <button class="left-btn">Немає світла/води?</button>
+                <button class="left-btn">Заключити договір</button>
+            </div>
+
+            <div class="faq-container">
+                <h2 class="faq-title">Популярні питання</h2>
+
+                <div class="faq-list" id="faqList">
                 </div>
             </div>
-            <div class="info-card info-card-large">
-                <h3>Популярні питання</h3>
-            </div>
-        </div>
+
+        </section>
+
     </div>
 
     <script src="js/auth.js"></script>

@@ -2,7 +2,7 @@
 const addresses = [
     {
         id: 1,
-        title: 'Велика Васильківська 7',
+        title: 'вул. Шевченка, 45, кв. 12',
         note: ''
     },
     {
@@ -15,50 +15,19 @@ const addresses = [
 let selectedAddressIndex = 0;
 let mobileMenuOpen = false;
 
-function renderSidebarAddresses() {
-    const container = document.getElementById('addressListSidebar');
-    if (!container) return;
-
-    container.innerHTML = addresses
-        .map((addr, index) => `
-            <button class="address-item-sidebar ${index === selectedAddressIndex ? 'active' : ''}" data-index="${index}">
-                ${addr.title}
-                ${addr.note ? `<small>${addr.note}</small>` : ''}
-            </button>
-        `)
-        .join('');
-
-    container.querySelectorAll('.address-item-sidebar').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const idx = Number(e.currentTarget.dataset.index);
-            selectedAddressIndex = idx;
-            renderSidebarAddresses();
-            renderMainAddresses();
-        });
-    });
-}
-
 function renderMainAddresses() {
     const container = document.getElementById('addressListMain');
     if (!container) return;
 
     container.innerHTML = addresses
-        .map((addr, index) => `
-            <div class="address-row ${index === selectedAddressIndex ? 'active' : ''}" data-index="${index}">
-                <span>${addr.title}</span>
+        .map(addr => `
+            <div class="address-row-static">
+                ${addr.title}
             </div>
         `)
         .join('');
-
-    container.querySelectorAll('.address-row').forEach(row => {
-        row.addEventListener('click', (e) => {
-            const idx = Number(e.currentTarget.dataset.index);
-            selectedAddressIndex = idx;
-            renderSidebarAddresses();
-            renderMainAddresses();
-        });
-    });
 }
+
 
 function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
@@ -80,17 +49,5 @@ function toggleMobileMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderSidebarAddresses();
     renderMainAddresses();
-
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', toggleMobileMenu);
-    }
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024 && mobileMenuOpen) {
-            toggleMobileMenu();
-        }
-    });
 });

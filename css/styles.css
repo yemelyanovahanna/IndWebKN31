@@ -195,6 +195,8 @@ body {
     font-size: 0.9rem;
 }
 
+
+
 /* =========================
    4. ГОЛОВНА СТОРІНКА (index.html)
    ========================= */
@@ -350,6 +352,108 @@ body {
     font-size: 1.125rem;
 }
 
+/* Нижні кнопки  */
+.bottom-section {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    align-items: stretch; 
+}
+
+
+.left-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 2;           
+}
+
+.left-btn {
+    flex: 1; 
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 32px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.left-btn:hover {
+    background: #f9fafb;
+}
+
+/* FAQ  */
+.faq-container {
+    flex: 3;               
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.faq-question-btn {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    transition: background 0.15s;
+}
+
+.faq-question-btn:hover {
+    background: #f9fafb;
+}
+
+.faq-question-text {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-right: 1rem;
+}
+
+.faq-answer {
+    padding: 0 0.5rem 1rem;
+    color: #6b7280;
+    display: none;
+}
+
+.faq-arrow {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+/* Adaptive */
+@media (max-width: 900px) {
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Адаптив головної */
 @media (max-width: 768px) {
     .home-grid {
@@ -360,6 +464,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 
 /* =========================
    5. ЛОГІН (login.html)
@@ -525,6 +630,31 @@ body {
 .content-wrapper {
     display: flex;
     gap: 1.5rem;
+}
+
+.content-header-top {
+    display: flex;
+    align-items: flex-start;      /* щоб текст був вирівняний зліва */
+    gap: 0.5rem;
+}
+
+.content-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.content-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.user-subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6b7280;
 }
 
 /* Сайдбар */
@@ -1685,25 +1815,23 @@ body {
     gap: 0.4rem;
 }
 
-.address-row {
-    padding: 0.6rem 0.75rem;
-    border-radius: 0.5rem;
-    background: #e5e7eb;
-    font-size: 0.875rem;
-    cursor: pointer;
-    border: 1px solid transparent;
+.address-row-static {
+    padding: 0.6rem 0.75rem;     
+    background: #f3f4f6;         
+    border: 1px solid #e5e7eb;   
+    border-radius: 0.5rem;       
+    font-size: 0.9rem;          
+    color: #111827;              
+    cursor: default;            
 }
 
-.address-row.active {
-    background: #e0edff;
-    border-color: #2563eb;
+
+.address-row-static + .address-row-static {
+    margin-top: 0.4rem;
 }
 
-.address-row span {
-    display: inline-block;
-}
 
-/* Зміна паролю */
+
 .change-password-btn {
     margin-top: 0.75rem;
     padding: 0;
