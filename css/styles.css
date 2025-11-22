@@ -877,9 +877,33 @@ body {
     transition: all 0.2s;
 }
 
+
 .add-account-btn:hover {
     border-color: #9ca3af;
     color: #374151;
+}
+
+.sidebar-add-account {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    background: #f9fafb;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sidebar-add-account:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
 }
 
 /* Статуси */
