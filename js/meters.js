@@ -100,6 +100,20 @@ const services = {
 };
 
 let currentService = 'electricity';
+const urlParams = new URLSearchParams(window.location.search);
+const requestedType = urlParams.get("type"); 
+
+const typeMap = {
+    heat: "heating",
+    water: "cold_water",
+    electricity: "electricity"
+};
+
+if (requestedType && typeMap[requestedType]) {
+    currentService = typeMap[requestedType];
+}
+
+
 
 
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');

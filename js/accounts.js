@@ -30,6 +30,13 @@ const accounts = [
     }
 ];
 
+const meterQueryMap = {
+    "Тепло": "heat",
+    "Вода/Каналізація": "water",
+    "Електрика": "electricity"
+};
+
+
 let selectedAccountIndex = 0;
 let activeTab = 'overview';
 let mobileMenuOpen = false;
@@ -147,7 +154,7 @@ function renderOverview() {
                         <p class="field-value">1 лічильник</p>
                         <p class="field-label">Останній показник: 02.05.2025</p>
                     </div>
-                    <button class="link-btn">Перейти в лічильники →</button>
+                    <button class="link-btn meter-btn" data-meter-type="${currentAccount.type}">Перейти в лічильники →</button>
                 </div>
             </div>
 
@@ -394,6 +401,7 @@ function renderContract() {
     `;
 }
 
+
 function renderContent() {
     const content = document.getElementById('tabContent');
     if (!content) return;
@@ -402,7 +410,27 @@ function renderContent() {
     else if (activeTab === 'bills') content.innerHTML = renderBills();
     else if (activeTab === 'payment') content.innerHTML = renderPayment();
     else if (activeTab === 'contract') content.innerHTML = renderContract();
+
+    attachMeterButtons();  
 }
+
+function attachMeterButtons() {
+    document.querySelectorAll('.meter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const typeName = btn.dataset.meterType;
+            const query = meterQueryMap[typeName];
+
+            if (!query) {
+                console.error("Unknown meter type:", typeName);
+                return;
+            }
+
+            window.location.href = `meters.html?type=${query}`;
+        });
+    });
+}
+
+
 
 function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
