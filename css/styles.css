@@ -1629,6 +1629,23 @@ body {
 }
 
 /* Таблиця історії */
+
+.td-value {
+    text-align: left;
+}
+
+.td-consumption {
+    text-align: left;
+}
+
+.td-status {
+    text-align: left;
+}
+
+#historyTableBody td {
+    text-align: left !important;
+}
+
 .table-container {
     overflow-x: auto;
 }

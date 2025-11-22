@@ -237,9 +237,9 @@ function renderHistory() {
     tbody.innerHTML = slice.map(entry => `
         <tr>
             <td>${entry.date}</td>
-            <td class="text-right font-medium">${entry.value} ${service.unit}</td>
-            <td class="text-right">${currentService === 'maintenance' ? entry.consumption : `${entry.consumption} ${service.unit}`}</td>
-            <td class="text-center">
+            <td class="td-value">${entry.value} ${service.unit}</td>
+            <td class="td-consumption">${entry.consumption} ${service.unit}</td>
+            <td class="text-status">
                 ${entry.submitted
                     ? `<span class="status-badge status-success">
                         ✓ Прийнято
