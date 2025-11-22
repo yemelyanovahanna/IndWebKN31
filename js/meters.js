@@ -99,6 +99,54 @@ const services = {
     }
 };
 
+const meterStats = {
+    electricity: {
+        month: "324 кВт⋅год",
+        monthChange: "+8%",
+        avg: "304 кВт⋅год",
+        avgPeriod: "За останні 6 місяців",
+        yearly: "3,648 кВт⋅год",
+        since: "З 01.11.2024"
+    },
+    cold_water: {
+        month: "3.2 м³",
+        monthChange: "+2%",
+        avg: "3.0 м³",
+        avgPeriod: "За останні 6 місяців",
+        yearly: "36.5 м³",
+        since: "З 01.11.2024"
+    },
+    hot_water: {
+        month: "1.2 м³",
+        monthChange: "-4%",
+        avg: "1.4 м³",
+        avgPeriod: "За останні 6 місяців",
+        yearly: "15.2 м³",
+        since: "З 01.11.2024"
+    },
+    heating: {
+        month: "0.42 Гкал",
+        monthChange: "+6%",
+        avg: "0.39 Гкал",
+        avgPeriod: "За останні 6 місяців",
+        yearly: "4.5 Гкал",
+        since: "З 01.11.2024"
+    }
+};
+
+function updateStats(service) {
+    const s = meterStats[service];
+    if (!s) return;
+
+    document.getElementById("statMonth").textContent = s.month;
+    document.getElementById("statMonthChange").textContent = s.monthChange;
+    document.getElementById("statAvg").textContent = s.avg;
+    document.getElementById("statAvgPeriod").textContent = s.avgPeriod;
+    document.getElementById("statYearly").textContent = s.yearly;
+    document.getElementById("statSince").textContent = s.since;
+}
+
+
 let currentService = 'electricity';
 const urlParams = new URLSearchParams(window.location.search);
 const requestedType = urlParams.get("type"); 
@@ -191,6 +239,7 @@ function updateServiceDisplay() {
         
         
         updateHistoryTable();
+        updateStats(currentService);
     } else {
         meterInfoCards.classList.add('hidden');
         submitCard.classList.add('hidden');
