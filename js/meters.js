@@ -1,201 +1,288 @@
 
-const services = {
-    electricity: {
-        name: 'Електрика',
-        icon: '⚡',
-        serialNumber: '123456789',
-        type: 'денний/нічний',
-        unit: 'кВт⋅год',
-        lastReading: {
-            value: '15432',
-            date: '02.10.2025',
-            time: '14:30'
+const metersByAddress = {
+    address1: {
+        electricity: {
+            name: 'Електрика',
+            icon: '⚡',
+            serialNumber: '123456789',
+            type: 'денний/нічний',
+            unit: 'кВт⋅год',
+            lastReading: {
+                value: '15432',
+                date: '02.10.2025',
+                time: '14:30'
+            },
+            verificationDate: '12.03.2024',
+            verificationExpiry: '12.03.2030',
+            status: 'active',
+            history: [
+                { date: '02.10.2025', value: '15432', consumption: '324', submitted: true },
+                { date: '01.09.2025', value: '15108', consumption: '298', submitted: true },
+                { date: '01.08.2025', value: '14810', consumption: '312', submitted: true },
+                { date: '01.07.2025', value: '14498', consumption: '285', submitted: true },
+                { date: '01.06.2025', value: '14213', consumption: '301', submitted: true },
+                { date: '01.05.2025', value: '13912', consumption: '276', submitted: true },
+                { date: '01.04.2025', value: '13636', consumption: '295', submitted: true },
+                { date: '01.03.2025', value: '13341', consumption: '288', submitted: true },
+                { date: '01.02.2025', value: '13053', consumption: '274', submitted: true },
+                { date: '01.01.2025', value: '12779', consumption: '269', submitted: true },
+                { date: '01.12.2024', value: '12510', consumption: '281', submitted: true },
+                { date: '01.11.2024', value: '12229', consumption: '260', submitted: true }
+            ]
         },
-        verificationDate: '12.03.2024',
-        verificationExpiry: '12.03.2030',
-        status: 'active',
-        history: [
-            { date: '02.10.2025', value: '15432', consumption: '324', submitted: true },
-            { date: '01.09.2025', value: '15108', consumption: '298', submitted: true },
-            { date: '01.08.2025', value: '14810', consumption: '312', submitted: true },
-            { date: '01.07.2025', value: '14498', consumption: '285', submitted: true },
-            { date: '01.06.2025', value: '14213', consumption: '301', submitted: true },
-            {date: '01.05.2025', value: '13912', consumption: '276', submitted: true },
-            { date: '01.04.2025', value: '13636', consumption: '295', submitted: true },
-            { date: '01.03.2025', value: '13341', consumption: '288', submitted: true },
-            { date: '01.02.2025', value: '13053', consumption: '274', submitted: true },
-            { date: '01.01.2025', value: '12779', consumption: '269', submitted: true },
-            { date: '01.12.2024', value: '12510', consumption: '281', submitted: true },
-            { date: '01.11.2024', value: '12229', consumption: '260', submitted: true }
-        ]
+
+        cold_water: {
+            name: 'Холодна вода',
+            icon: '💧',
+            serialNumber: '987654321',
+            type: 'однотарифний',
+            unit: 'м³',
+            lastReading: {
+                value: '245',
+                date: '03.10.2025',
+                time: '10:15'
+            },
+            verificationDate: '15.06.2023',
+            verificationExpiry: '15.06.2029',
+            status: 'active',
+            history: [
+                { date: '03.10.2025', value: '245', consumption: '12', submitted: true },
+                { date: '01.09.2025', value: '233', consumption: '11', submitted: true },
+                { date: '01.08.2025', value: '222', consumption: '13', submitted: true },
+                { date: '01.07.2025', value: '209', consumption: '10', submitted: true },
+                { date: '01.06.2025', value: '199', consumption: '12', submitted: true },
+                { date: '01.05.2025', value: '187', consumption: '11', submitted: true },
+                { date: '01.04.2025', value: '176', consumption: '9', submitted: true },
+                { date: '01.03.2025', value: '167', consumption: '10', submitted: true },
+                { date: '01.02.2025', value: '157', consumption: '8', submitted: true },
+                { date: '01.01.2025', value: '149', consumption: '9', submitted: true },
+                { date: '01.12.2024', value: '140', consumption: '7', submitted: true },
+                { date: '01.11.2024', value: '133', consumption: '8', submitted: true }
+            ]
+        },
+
+        hot_water: {
+            name: 'Гаряча вода',
+            icon: '♨️',
+            serialNumber: '456789123',
+            type: 'однотарифний',
+            unit: 'м³',
+            lastReading: {
+                value: '178',
+                date: '03.10.2025',
+                time: '10:20'
+            },
+            verificationDate: '20.08.2023',
+            verificationExpiry: '20.08.2029',
+            status: 'active',
+            history: [
+                { date: '03.10.2025', value: '178', consumption: '8', submitted: true },
+                { date: '01.09.2025', value: '170', consumption: '7', submitted: true },
+                { date: '01.08.2025', value: '163', consumption: '9', submitted: true },
+                { date: '01.07.2025', value: '154', consumption: '6', submitted: true },
+                { date: '01.06.2025', value: '148', consumption: '8', submitted: true },
+                { date: '01.05.2025', value: '140', consumption: '7', submitted: true },
+                { date: '01.04.2025', value: '133', consumption: '8', submitted: true },
+                { date: '01.03.2025', value: '125', consumption: '6', submitted: true },
+                { date: '01.02.2025', value: '119', consumption: '7', submitted: true },
+                { date: '01.01.2025', value: '112', consumption: '6', submitted: true },
+                { date: '01.12.2024', value: '106', consumption: '7', submitted: true },
+                { date: '01.11.2024', value: '99', consumption: '6', submitted: true }
+            ]
+        },
+
+        heating: {
+            name: 'Тепло',
+            icon: '🔥',
+            serialNumber: '789123456',
+            type: 'централізоване',
+            unit: 'Гкал',
+            lastReading: {
+                value: '12.5',
+                date: '01.10.2025',
+                time: '09:00'
+            },
+            verificationDate: '10.09.2023',
+            verificationExpiry: '10.09.2027',
+            status: 'active',
+            history: [
+                { date: '01.10.2025', value: '12.5', consumption: '2.3', submitted: true },
+                { date: '01.09.2025', value: '10.2', consumption: '0.8', submitted: true },
+                { date: '01.08.2025', value: '9.4', consumption: '0.5', submitted: true },
+                { date: '01.07.2025', value: '8.9', consumption: '0.4', submitted: true },
+                { date: '01.06.2025', value: '8.5', consumption: '0.6', submitted: true },
+                { date: '01.05.2025', value: '7.9', consumption: '0.5', submitted: true },
+                { date: '01.04.2025', value: '7.4', consumption: '0.7', submitted: true },
+                { date: '01.03.2025', value: '6.7', consumption: '0.6', submitted: true },
+                { date: '01.02.2025', value: '6.1', consumption: '0.5', submitted: true },
+                { date: '01.01.2025', value: '5.6', consumption: '0.6', submitted: true },
+                { date: '01.12.2024', value: '5.0', consumption: '0.7', submitted: true },
+                { date: '01.11.2024', value: '4.3', consumption: '0.5', submitted: true }
+            ]
+        },
+
+        maintenance: {
+            name: 'Утримання будинку',
+            icon: '🏢',
+            serialNumber: 'N/A',
+            type: 'фіксована плата',
+            unit: '₴',
+            lastReading: {
+                value: '870',
+                date: '03.10.2025',
+                time: '09:00'
+            },
+            verificationDate: null,
+            verificationExpiry: null,
+            status: 'active',
+            history: [
+                { date: '03.10.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування ліфта', submitted: true },
+                { date: '01.09.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт дверей', submitted: true },
+                { date: '01.08.2025', value: '870', consumption: 'Електрика, Прибирання, Дезінфекція', submitted: true },
+                { date: '01.07.2025', value: '870', consumption: 'Електрика, Прибирання, Вивіз сміття', submitted: true },
+                { date: '01.06.2025', value: '870', consumption: 'Електрика, Прибирання, Підміна лампочок', submitted: true },
+                { date: '01.05.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування пожежної системи', submitted: true },
+                { date: '01.04.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт даху', submitted: true },
+                { date: '01.03.2025', value: '870', consumption: 'Електрика, Прибирання, Обрізка дере', submitted: true },
+                { date: '01.02.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт під’їзду', submitted: true },
+                { date: '01.01.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування ліфта', submitted: true },
+                { date: '01.12.2024', value: '870', consumption: 'Електрика, Прибирання, Вивіз сміття', submitted: true },
+                { date: '01.11.2024', value: '870', consumption: 'Електрика, Прибирання, Підміна лампочок', submitted: true }
+            ]
+        }
     },
-    cold_water: {
-        name: 'Холодна вода',
-        icon: '💧',
-        serialNumber: '987654321',
-        type: 'однотарифний',
-        unit: 'м³',
-        lastReading: {
-            value: '245',
-            date: '03.10.2025',
-            time: '10:15'
-        },
-        verificationDate: '15.06.2023',
-        verificationExpiry: '15.06.2029',
-        status: 'active',
-        history: [
-            { date: '03.10.2025', value: '245', consumption: '12', submitted: true },
-            { date: '01.09.2025', value: '233', consumption: '11', submitted: true },
-            { date: '01.08.2025', value: '222', consumption: '13', submitted: true },
-            { date: '01.07.2025', value: '209', consumption: '10', submitted: true },
-            { date: '01.06.2025', value: '199', consumption: '12', submitted: true },
-            { date: '01.05.2025', value: '187', consumption: '11', submitted: true },
-            { date: '01.04.2025', value: '176', consumption: '9', submitted: true },
-            { date: '01.03.2025', value: '167', consumption: '10', submitted: true },
-            { date: '01.02.2025', value: '157', consumption: '8', submitted: true },
-            { date: '01.01.2025', value: '149', consumption: '9', submitted: true },
-            { date: '01.12.2024', value: '140', consumption: '7', submitted: true },
-            { date: '01.11.2024', value: '133', consumption: '8', submitted: true }
-        ]
-    },
-    hot_water: {
-        name: 'Гаряча вода',
-        icon: '♨️',
-        serialNumber: '456789123',
-        type: 'однотарифний',
-        unit: 'м³',
-        lastReading: {
-            value: '178',
-            date: '03.10.2025',
-            time: '10:20'
-        },
-        verificationDate: '20.08.2023',
-        verificationExpiry: '20.08.2029',
-        status: 'active',
-        history: [
-            { date: '03.10.2025', value: '178', consumption: '8', submitted: true },
-            { date: '01.09.2025', value: '170', consumption: '7', submitted: true },
-            { date: '01.08.2025', value: '163', consumption: '9', submitted: true },
-            { date: '01.07.2025', value: '154', consumption: '6', submitted: true },
-            { date: '01.06.2025', value: '148', consumption: '8', submitted: true },
-            { date: '01.05.2025', value: '140', consumption: '7', submitted: true },
-            { date: '01.04.2025', value: '133', consumption: '8', submitted: true },
-            { date: '01.03.2025', value: '125', consumption: '6', submitted: true },
-            { date: '01.02.2025', value: '119', consumption: '7', submitted: true },
-            { date: '01.01.2025', value: '112', consumption: '6', submitted: true },
-            { date: '01.12.2024', value: '106', consumption: '7', submitted: true },
-            { date: '01.11.2024', value: '99', consumption: '6', submitted: true }
-        ]
-    },
-    heating: {
-        name: 'Тепло',
-        icon: '🔥',
-        serialNumber: '789123456',
-        type: 'централізоване',
-        unit: 'Гкал',
-        lastReading: {
-            value: '12.5',
-            date: '01.10.2025',
-            time: '09:00'
-        },
-        verificationDate: '10.09.2023',
-        verificationExpiry: '10.09.2027',
-        status: 'active',
-        history: [
-            { date: '01.10.2025', value: '12.5', consumption: '2.3', submitted: true },
-            { date: '01.09.2025', value: '10.2', consumption: '0.8', submitted: true },
-            { date: '01.08.2025', value: '9.4', consumption: '0.5', submitted: true },
-            { date: '01.07.2025', value: '8.9', consumption: '0.4', submitted: true },
-            { date: '01.06.2025', value: '8.5', consumption: '0.6', submitted: true },
-            { date: '01.05.2025', value: '7.9', consumption: '0.5', submitted: true },
-            { date: '01.04.2025', value: '7.4', consumption: '0.7', submitted: true },
-            { date: '01.03.2025', value: '6.7', consumption: '0.6', submitted: true },
-            { date: '01.02.2025', value: '6.1', consumption: '0.5', submitted: true },
-            { date: '01.01.2025', value: '5.6', consumption: '0.6', submitted: true },
-            { date: '01.12.2024', value: '5.0', consumption: '0.7', submitted: true },
-            { date: '01.11.2024', value: '4.3', consumption: '0.5', submitted: true }
-        ]
-    },
-    maintenance: {
-        name: 'Утримання будинку',
-        icon: '🏢',
-        serialNumber: 'N/A',
-        type: 'фіксована плата',
-        unit: '₴',
-        lastReading: {
-            value: '870',
-            date: '03.10.2025',
-            time: '09:00'
-        },
-        verificationDate: null,
-        verificationExpiry: null,
-        status: 'active',
-        history: [
-            { date: '03.10.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування ліфта', submitted: true },
-            { date: '01.09.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт дверей', submitted: true },
-            { date: '01.08.2025', value: '870', consumption: 'Електрика, Прибирання, Дезінфекція', submitted: true },
-            { date: '01.07.2025', value: '870', consumption: 'Електрика, Прибирання, Вивіз сміття', submitted: true },
-            { date: '01.06.2025', value: '870', consumption: 'Електрика, Прибирання, Підміна лампочок', submitted: true },
-            { date: '01.05.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування пожежної системи', submitted: true },
-            { date: '01.04.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт даху', submitted: true },
-            { date: '01.03.2025', value: '870', consumption: 'Електрика, Прибирання, Обрізка дере', submitted: true },
-            { date: '01.02.2025', value: '870', consumption: 'Електрика, Прибирання, Ремонт під’їзду', submitted: true },
-            { date: '01.01.2025', value: '870', consumption: 'Електрика, Прибирання, Обслуговування ліфта', submitted: true },
-            { date: '01.12.2024', value: '870', consumption: 'Електрика, Прибирання, Вивіз сміття', submitted: true },
-            { date: '01.11.2024', value: '870', consumption: 'Електрика, Прибирання, Підміна лампочок', submitted: true }
-        ]
+
+    // ДРУГА АДРЕСА: тільки електрика
+    address2: {
+        electricity: {
+            name: 'Електрика',
+            icon: '⚡',
+            serialNumber: '555222111',
+            type: 'денний/нічний',
+            unit: 'кВт⋅год',
+            lastReading: {
+                value: '9821',
+                date: '03.10.2025',
+                time: '16:10'
+            },
+            verificationDate: '01.05.2024',
+            verificationExpiry: '01.05.2030',
+            status: 'active',
+            history: [
+                { date: '03.10.2025', value: '9821', consumption: '210', submitted: true },
+                { date: '01.09.2025', value: '9611', consumption: '198', submitted: true },
+                { date: '01.08.2025', value: '9413', consumption: '205', submitted: true },
+                { date: '01.07.2025', value: '9208', consumption: '187', submitted: true }
+            ]
+        }
     }
 };
+
 
 const meterStats = {
-    electricity: {
-        month: "324 кВт⋅год",
-        monthChange: "+8%",
-        avg: "304 кВт⋅год",
-        avgPeriod: "За останні 6 місяців",
-        yearly: "3,648 кВт⋅год",
-        since: "З 01.11.2024"
+    address1: {
+        electricity: {
+            month: "324 кВт⋅год",
+            monthChange: "+8%",
+            avg: "304 кВт⋅год",
+            avgPeriod: "За останні 6 місяців",
+            yearly: "3,648 кВт⋅год",
+            since: "З 01.11.2024"
+        },
+        cold_water: {
+            month: "3.2 м³",
+            monthChange: "+2%",
+            avg: "3.0 м³",
+            avgPeriod: "За останні 6 місяців",
+            yearly: "36.5 м³",
+            since: "З 01.11.2024"
+        },
+        hot_water: {
+            month: "1.2 м³",
+            monthChange: "-4%",
+            avg: "1.4 м³",
+            avgPeriod: "За останні 6 місяців",
+                yearly: "15.2 м³",
+            since: "З 01.11.2024"
+        },
+        heating: {
+            month: "0.42 Гкал",
+            monthChange: "+6%",
+            avg: "0.39 Гкал",
+            avgPeriod: "За останні 6 місяців",
+            yearly: "4.5 Гкал",
+            since: "З 01.11.2024"
+        }
     },
-    cold_water: {
-        month: "3.2 м³",
-        monthChange: "+2%",
-        avg: "3.0 м³",
-        avgPeriod: "За останні 6 місяців",
-        yearly: "36.5 м³",
-        since: "З 01.11.2024"
-    },
-    hot_water: {
-        month: "1.2 м³",
-        monthChange: "-4%",
-        avg: "1.4 м³",
-        avgPeriod: "За останні 6 місяців",
-        yearly: "15.2 м³",
-        since: "З 01.11.2024"
-    },
-    heating: {
-        month: "0.42 Гкал",
-        monthChange: "+6%",
-        avg: "0.39 Гкал",
-        avgPeriod: "За останні 6 місяців",
-        yearly: "4.5 Гкал",
-        since: "З 01.11.2024"
+
+    address2: {
+        electricity: {
+            month: "210 кВт⋅год",
+            monthChange: "+6%",
+            avg: "200 кВт⋅год",
+            avgPeriod: "За останні 6 місяців",
+            yearly: "2,350 кВт⋅год",
+            since: "З 01.10.2024"
+        }
     }
 };
 
-function updateStats(service) {
-    const s = meterStats[service];
-    if (!s) return;
+let currentAddress = "address1";
+let currentService = "electricity";
 
-    document.getElementById("statMonth").textContent = s.month;
-    document.getElementById("statMonthChange").textContent = s.monthChange;
-    document.getElementById("statAvg").textContent = s.avg;
-    document.getElementById("statAvgPeriod").textContent = s.avgPeriod;
-    document.getElementById("statYearly").textContent = s.yearly;
-    document.getElementById("statSince").textContent = s.since;
+const addressButtons = document.querySelectorAll(".address-btn");
+
+addressButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        addressButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        currentAddress = btn.dataset.address;
+
+        if (!metersByAddress[currentAddress][currentService]) {
+            currentService = "electricity";
+        }
+
+        updateSidebar();
+        updateServiceDisplay();
+        updateStats();
+        historyVisibleCount = 5;
+        renderHistory();
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateSidebar();
+    updateServiceDisplay();
+    updateStats();
+    renderHistory();
+});
+
+
+
+function updateStats(address, service) {
+    const stats = meterStats[currentAddress]?.[currentService];
+    if (!stats) {
+        document.getElementById("statMonth").textContent = "-";
+        document.getElementById("statMonthChange").textContent = "";
+        document.getElementById("statAvg").textContent = "-";
+        document.getElementById("statAvgPeriod").textContent = "";
+        document.getElementById("statYearly").textContent = "-";
+        document.getElementById("statSince").textContent = "";
+        return;
+    }
+
+    document.getElementById("statMonth").textContent = stats.month;
+    document.getElementById("statMonthChange").textContent = stats.monthChange;
+    document.getElementById("statAvg").textContent = stats.avg;
+    document.getElementById("statAvgPeriod").textContent = stats.avgPeriod;
+    document.getElementById("statYearly").textContent = stats.yearly;
+    document.getElementById("statSince").textContent = stats.since;
 }
 
-
-let currentService = 'electricity';
+// // ///
 const urlParams = new URLSearchParams(window.location.search);
 const requestedType = urlParams.get("type"); 
 
@@ -229,7 +316,7 @@ const loadMoreBtn = document.getElementById("loadMoreBtn");
 const shownCountText = document.getElementById("shownCountText");
 
 function renderHistory() {
-    const service = services[currentService];
+    const service = metersByAddress[currentAddress][currentService];
     const tbody = document.getElementById("historyTableBody");
 
     const slice = service.history.slice(0, historyVisibleCount);
@@ -276,64 +363,85 @@ mobileMenuBtn.addEventListener('click', () => {
 
 serviceButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const serviceId = button.getAttribute('data-service');
-        
-        
+
+        currentService = button.dataset.service;
+        updateStats(currentAddress, currentService);
+        historyVisibleCount = 5;
+        renderHistory();
+
+
         serviceButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-        
-        
-        currentService = serviceId;
-        
-        
+
         sidebar.classList.remove('mobile-open');
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
-        
-        
+
         updateServiceDisplay();
+        updateStats(currentService);
+
+        historyVisibleCount = 5;
+        renderHistory();
     });
 });
 
+function updateSidebar() {
+    const availableServices = Object.keys(metersByAddress[currentAddress]);
+    
+    serviceButtons.forEach(btn => {
+        const serviceId = btn.dataset.service;
+
+        if (!availableServices.includes(serviceId)) {
+            btn.classList.add("hidden");
+        } else {
+            btn.classList.remove("hidden");
+        }
+    });
+}
 
 function updateServiceDisplay() {
-    const service = services[currentService];
-    
-    
+    const service = metersByAddress[currentAddress][currentService];
+
     document.getElementById('serviceIconLarge').textContent = service.icon;
     document.getElementById('serviceTitle').textContent = service.name;
-    
-    const subtitle = service.type ? `${service.type} • серійний № ${service.serialNumber}` : `серійний № ${service.serialNumber}`;
+
+    const subtitle = service.type 
+        ? `${service.type} • серійний № ${service.serialNumber}` 
+        : `серійний № ${service.serialNumber}`;
     document.getElementById('serviceSubtitle').textContent = subtitle;
-    
-    
+
     const meterInfoCards = document.getElementById('meterInfoCards');
     const submitCard = document.getElementById('submitCard');
-    
+
+    // 🔥 Якщо утримання будинку → взагалі ховаємо блок подачі показників
+    if (currentService === "maintenance") {
+        submitCard.classList.add("hidden");
+        emptyState.classList.add("hidden"); 
+        addReadingBtn.classList.add("hidden");
+    } 
+    else {
+        submitCard.classList.remove("hidden");
+        emptyState.classList.remove("hidden");
+        addReadingBtn.classList.remove("hidden");
+    }
+
     if (service.lastReading) {
         meterInfoCards.classList.remove('hidden');
-        submitCard.classList.remove('hidden');
-        
         
         const lastReadingValue = meterInfoCards.querySelector('.info-card-value-large');
         const lastReadingDate = meterInfoCards.querySelector('.info-card-detail-highlight');
+
         lastReadingValue.textContent = `${service.lastReading.value} ${service.unit}`;
         lastReadingDate.textContent = `${service.lastReading.date} о ${service.lastReading.time}`;
-        
-        
-        document.getElementById('lastReadingValue').textContent = `${service.lastReading.value} ${service.unit}`;
-        document.getElementById('lastReadingDate').textContent = service.lastReading.date;
-        meterValueInput.placeholder = `Більше ${service.lastReading.value}`;
-        meterValueInput.min = parseInt(service.lastReading.value) + 1;
-        
-        
-        updateHistoryTable();
-        updateStats(currentService);
+
+        updateStats();
+        historyVisibleCount = 5;
+        renderHistory();
     } else {
         meterInfoCards.classList.add('hidden');
-        submitCard.classList.add('hidden');
     }
 }
+
 
 
 function updateHistoryTable() {
@@ -341,7 +449,7 @@ function updateHistoryTable() {
     historyVisibleCount = 5;  
     renderHistory();
 
-    const service = services[currentService];
+    const service = metersByAddress[currentAddress][currentService];
     const tbody = document.getElementById('historyTableBody');
     
     if (!service.history || service.history.length === 0) {
@@ -371,7 +479,7 @@ cancelBtn.addEventListener('click', () => {
 
 
 meterValueInput.addEventListener('input', () => {
-    const service = services[currentService];
+    const service = metersByAddress[currentAddress][currentService];
     const newValue = parseInt(meterValueInput.value);
     const lastValue = parseInt(service.lastReading.value);
     
@@ -387,18 +495,37 @@ meterValueInput.addEventListener('input', () => {
 
 submitForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    const service = services[currentService];
-    const newValue = meterValueInput.value;
-    
-    alert(`Показник ${newValue} ${service.unit} успішно відправлено!`);
-    
-    
+
+    const service = metersByAddress[currentAddress][currentService];
+    const newValue = parseFloat(meterValueInput.value);
+    const lastValue = parseFloat(service.lastReading.value);
+    const consumption = newValue - lastValue;
+
+    service.history.unshift({
+        date: new Date().toLocaleDateString('uk-UA'),
+        value: newValue.toString(),
+        consumption: consumption.toString(),
+        submitted: true
+    });
+
+    service.lastReading.value = newValue.toString();
+    service.lastReading.date = new Date().toLocaleDateString('uk-UA');
+    service.lastReading.time = new Date().toLocaleTimeString('uk-UA', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
     submitFormContainer.classList.add('hidden');
     emptyState.classList.remove('hidden');
     addReadingBtn.classList.remove('hidden');
     meterValueInput.value = '';
     consumptionInfo.classList.add('hidden');
+
+    updateServiceDisplay();
+    updateStats();
+    historyVisibleCount = 5;     
+    renderHistory();             
+
+    alert(`Показник ${newValue} ${service.unit} успішно відправлено!`);
 });
 
-updateServiceDisplay();

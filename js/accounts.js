@@ -110,7 +110,7 @@ function renderAccounts() {
     });
 }
 
-/* ==== Шапка вмісту (назва рахунку, статус) ==== */
+
 function renderHeader() {
     const currentAccount = accounts[selectedAccountIndex];
     document.getElementById('accountTitle').textContent = currentAccount.type;
