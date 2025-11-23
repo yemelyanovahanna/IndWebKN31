@@ -384,7 +384,7 @@ function renderContract() {
                 <button class="link-btn">Керувати доступами →</button>
             </div>
 
-            <div class="danger-card">
+            <div class="danger-card" id="terminateContractBtn">
                 <h3 class="card-title">Небезпечна дія</h3>
                 <p>Ця дія призведе до розірвання договору і припинення надання послуг</p>
                 <button class="btn-danger">
@@ -402,6 +402,7 @@ function renderContract() {
 }
 
 
+
 function renderContent() {
     const content = document.getElementById('tabContent');
     if (!content) return;
@@ -412,6 +413,8 @@ function renderContent() {
     else if (activeTab === 'contract') content.innerHTML = renderContract();
 
     attachMeterButtons();
+    attachTerminateButton();
+
     document.querySelectorAll('.view-payments-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             activeTab = "payment";
@@ -426,6 +429,7 @@ function renderContent() {
             renderContent();
         });
     });
+
     document.querySelectorAll('.pay-now-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             activeTab = "payment";
@@ -441,6 +445,7 @@ function renderContent() {
         });
     });
 }
+
 
 
 function attachMeterButtons() {
@@ -459,7 +464,14 @@ function attachMeterButtons() {
     });
 }
 
+function attachTerminateButton() {
+    const terminateBtn = document.getElementById('terminateContractBtn');
+    if (!terminateBtn) return;
 
+    terminateBtn.addEventListener('click', () => {
+        alert("Запит на розірвання договору надіслано!");
+    });
+}
 
 function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
@@ -500,4 +512,11 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMobileMenu();
         }
     });
+
+    const terminateBtn = document.getElementById('terminateContractBtn');
+    if (terminateBtn) {
+        terminateBtn.addEventListener('click', () => {
+            alert("Запит на розірвання договору надіслано!");
+        });
+    }
 });

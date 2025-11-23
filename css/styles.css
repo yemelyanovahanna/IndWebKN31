@@ -70,20 +70,20 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 16px; /* було 14px → збільшено */
+    font-size: 16px; 
 }
 
 .divider {
     color: #9ca3af;
     font-weight: 300;
-    font-size: 18px; /* щоб виглядало акуратно при збільшенні */
+    font-size: 18px; 
 }
 
 .back-home-link {
     color: #0B508D;
     text-decoration: none;
-    font-weight: 600;  /* робить текст більш читабельним */
-    font-size: 16px;   /* збільшений розмір */
+    font-weight: 600;  
+    font-size: 16px;   
     transition: color .2s ease;
 }
 
@@ -91,7 +91,7 @@ body {
     color: #083b68;
 }
 
-/* Для головної: логотип + "Контакти" + юзер */
+/* Для головної: логотип,Контакти,юзер */
 .logo {
     font-size: 1.25rem;
     font-weight: 700;
