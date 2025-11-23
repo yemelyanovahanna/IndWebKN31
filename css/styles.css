@@ -66,6 +66,30 @@ body {
     font-weight: 700;
     color: #111827;
 }
+.back-home-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px; /* було 14px → збільшено */
+}
+
+.divider {
+    color: #9ca3af;
+    font-weight: 300;
+    font-size: 18px; /* щоб виглядало акуратно при збільшенні */
+}
+
+.back-home-link {
+    color: #0B508D;
+    text-decoration: none;
+    font-weight: 600;  /* робить текст більш читабельним */
+    font-size: 16px;   /* збільшений розмір */
+    transition: color .2s ease;
+}
+
+.back-home-link:hover {
+    color: #083b68;
+}
 
 /* Для головної: логотип + "Контакти" + юзер */
 .logo {
@@ -634,7 +658,7 @@ body {
 
 .content-header-top {
     display: flex;
-    align-items: flex-start;      /* щоб текст був вирівняний зліва */
+    align-items: flex-start;    
     gap: 0.5rem;
 }
 

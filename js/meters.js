@@ -152,7 +152,6 @@ const metersByAddress = {
         }
     },
 
-    // ДРУГА АДРЕСА: тільки електрика
     address2: {
         electricity: {
             name: 'Електрика',
@@ -413,7 +412,6 @@ function updateServiceDisplay() {
     const meterInfoCards = document.getElementById('meterInfoCards');
     const submitCard = document.getElementById('submitCard');
 
-    // 🔥 Якщо утримання будинку → взагалі ховаємо блок подачі показників
     if (currentService === "maintenance") {
         submitCard.classList.add("hidden");
         emptyState.classList.add("hidden"); 
