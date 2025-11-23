@@ -72,6 +72,16 @@ const statusBadges = {
     }
 };
 
+const paymentHistory = [
+    { date: "12.04.2025", amount: "150,00 грн" },
+    { date: "10.03.2025", amount: "850,00 грн" },
+    { date: "15.02.2025", amount: "740,00 грн" },
+    { date: "12.01.2025", amount: "690,00 грн" },
+    { date: "05.12.2024", amount: "810,00 грн" },
+    { date: "10.11.2024", amount: "735,00 грн" }
+];
+
+
 function getStatusBadge(status) {
     const badge = statusBadges[status];
     return `<span class="status-badge ${badge.color}">${badge.icon}${badge.text}</span>`;
@@ -255,27 +265,22 @@ function renderPayment() {
         <div class="tab-content-inner">
             <div class="card">
                 <h3 class="card-title">Фінанси</h3>
+
                 <div class="balance-card">
                     <p class="balance-label">Баланс</p>
                     <p class="balance-amount">Борг 356,20 грн</p>
                 </div>
 
-                <div style="margin-bottom:1rem;">
-                    <p style="font-size:.875rem;font-weight:500;color:#374151;margin-bottom:.5rem;">
-                        Останні оплати:
-                    </p>
-                    ${[
-                        { date: '12.04.2025', amount: '150,00' },
-                        { date: '10.03.2025', amount: '850,00' },
-                        { date: '15.02.2025', amount: '740,00' }
-                    ].map(p => `
-                        <div style="display:flex;justify-content:space-between;font-size:.875rem;margin-bottom:.25rem;">
-                            <span style="color:#6b7280;">${p.date}</span>
-                            <span style="color:#111827;font-weight:500;">${p.amount} грн</span>
-                        </div>
-                    `).join('')}
+                <p style="font-size:.875rem;font-weight:500;color:#374151;margin:1rem 0 .5rem;">
+                    Останні оплати:
+                </p>
+
+                <div id="paymentsList"></div>
+
+                <div class="table-footer">
+                    <p class="table-footer-text" id="shownPaymentsText"></p>
+                    <button class="btn-text" id="loadMorePaymentsBtn">Більше</button>
                 </div>
-                <button class="link-btn">Більше →</button>
             </div>
 
             <div class="card">
@@ -412,6 +417,11 @@ function renderContent() {
     else if (activeTab === 'payment') content.innerHTML = renderPayment();
     else if (activeTab === 'contract') content.innerHTML = renderContract();
 
+    if (activeTab === "payment") {
+        paymentsVisible = 3;
+        renderPayments();
+    }
+    
     attachMeterButtons();
     attachTerminateButton();
 
@@ -489,6 +499,40 @@ function toggleMobileMenu() {
         closeIcon.classList.add('hidden');
     }
 }
+
+let paymentsVisible = 3; 
+const paymentsStep = 3;
+
+function renderPayments() {
+    const container = document.getElementById("paymentsList");
+
+    const slice = paymentHistory.slice(0, paymentsVisible);
+
+    container.innerHTML = slice.map(p => `
+        <div class="payment-item">
+            <div class="payment-info">
+                <p>${p.date}</p>
+                <p>${p.amount}</p>
+            </div>
+        </div>
+    `).join("");
+
+    const loadBtn = document.getElementById("loadMorePaymentsBtn");
+
+    if (paymentsVisible >= paymentHistory.length) {
+        loadBtn.classList.add("hidden");
+    } else {
+        loadBtn.classList.remove("hidden");
+    }
+}
+
+document.addEventListener("click", (e) => {
+    if (e.target.id === "loadMorePaymentsBtn") {
+        paymentsVisible += paymentsStep;
+        renderPayments();
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     renderAccounts();
