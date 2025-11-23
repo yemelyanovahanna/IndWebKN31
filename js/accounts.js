@@ -288,7 +288,7 @@ function renderPayment() {
 
                 <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;">
                     <label class="checkbox-option">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" class="pay-checkbox" data-amount="100" checked>
                         <div class="checkbox-content">
                             <p>Сплатити поточний період</p>
                             <p>Березень 2025 — 100 грн</p>
@@ -296,7 +296,7 @@ function renderPayment() {
                     </label>
 
                     <label class="checkbox-option">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" class="pay-checkbox" data-amount="356.20" checked>
                         <div class="checkbox-content">
                             <p>Сплатити борг</p>
                             <p>356,20 грн</p>
@@ -406,6 +406,19 @@ function renderContract() {
     `;
 }
 
+function updateTotalPayment() {
+    const checkboxes = document.querySelectorAll('.pay-checkbox');
+    let total = 0;
+
+    checkboxes.forEach(cb => {
+        if (cb.checked) {
+            total += parseFloat(cb.dataset.amount);
+        }
+    });
+
+    document.querySelector('.total-amount').textContent =
+        `${total.toFixed(2)} грн`;
+}
 
 
 function renderContent() {
@@ -415,13 +428,22 @@ function renderContent() {
     if (activeTab === 'overview') content.innerHTML = renderOverview();
     else if (activeTab === 'bills') content.innerHTML = renderBills();
     else if (activeTab === 'payment') content.innerHTML = renderPayment();
+    if (activeTab === "payment") {
+    setTimeout(() => {
+        const checkboxes = document.querySelectorAll('.pay-checkbox');
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateTotalPayment);
+        });
+        updateTotalPayment(); 
+    }, 0);
+}
     else if (activeTab === 'contract') content.innerHTML = renderContract();
 
     if (activeTab === "payment") {
         paymentsVisible = 3;
         renderPayments();
     }
-    
+
     attachMeterButtons();
     attachTerminateButton();
 
