@@ -12,13 +12,14 @@
 body {
     font-family: var(--font-main) !important;
     background-color: #f9fafb;
-    color: #111827;
+    color: var(--mauve);
     min-height: 100vh;
     line-height: 1.5;
 }
 
 button, input, textarea {
-    font-family: var(--font-main) !important;
+    font-family: var(--font-main);
+    color: var(--mauve);
 }
 
 .hidden {
@@ -30,10 +31,45 @@ button, input, textarea {
 .text-center { text-align: center; }
 .font-medium { font-weight: 500; }
 
+.my-gradient-bg {
+    background: linear-gradient(150deg, var(--mauve), var(--coral-soft));
+}
+
+.color-mauve {
+    color: var(--mauve);
+}
+
+.color-rosewood {
+    color: var(--rosewood);
+}
+
+.color-coral-soft {
+    color: var(--coral-soft);
+}
+
+.color-peach-bright {
+    color: var(--peach-bright);
+}
+
+.color-amber-soft {
+    color: var(--amber-soft);
+}
+
+.color-lemon-light {
+    color: var(--lemon-light);
+}
+
+.color-teal-muted {
+    color: var(--teal-muted);
+}
+
+.color-black input{
+    color: #111827;
+}
+
 /* =========================
    1. FOOTER
    ========================= */
-
 .footer {
     background: #ffffff;
     border-top: 1px solid #e5e7eb;
@@ -709,7 +745,7 @@ button, input, textarea {
 
 .sidebar-card,
 .sidebar-content {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #e5e7eb;
     border-radius: 0.75rem;
     padding: 1rem;
@@ -808,7 +844,7 @@ button, input, textarea {
 
 /* універсальні картки */
 .card {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -1843,7 +1879,7 @@ button, input, textarea {
    ========================= */
 
 .profile-card {
-    background: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.75rem;
     border: 1px solid #e5e7eb;
     padding: 1.5rem 1.75rem 1.75rem;
@@ -1902,15 +1938,15 @@ button, input, textarea {
     width: 100%;
     padding: 0.55rem 0.75rem;
     border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
+    border: 1px solid var(--mauve-30);
+    background: var(--mauve-30);
     font-size: 0.875rem;
     outline: none;
 }
 
 .field-group input:focus {
-    border-color: #2563eb;
-    background: #ffffff;
+    border-color: var(--mauve);
+    background: var(--mauve-50);
 }
 
 
@@ -1931,13 +1967,13 @@ button, input, textarea {
 }
 
 .address-row-static {
-    padding: 0.6rem 0.75rem;     
-    background: #f3f4f6;         
-    border: 1px solid #e5e7eb;   
-    border-radius: 0.5rem;       
-    font-size: 0.9rem;          
-    color: #111827;              
-    cursor: default;            
+    padding: 0.6rem 0.75rem;
+    background: var(--mauve-30);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #111827;
+    cursor: default;
 }
 
 
