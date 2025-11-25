@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Slovic Variable";
+    src: url("../fonts/Slovic_Demo_VarGX.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+:root {
+    --font-main: "Slovic Variable", serif;
+}
