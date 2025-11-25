@@ -1,7 +1,7 @@
 @import 'base.css';
 
 /* =========================
-   1. RESET
+   0. RESET
    ========================= */
 * {
     margin: 0;
@@ -29,6 +29,20 @@ button, input, textarea {
 .text-right { text-align: right; }
 .text-center { text-align: center; }
 .font-medium { font-weight: 500; }
+
+/* =========================
+   1. FOOTER
+   ========================= */
+
+.footer {
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: 0 -1px 2px rgba(0,0,0,0.05);
+    padding: 24px 0;
+    text-align: center;
+}
 
 /* =========================
    2. ХЕДЕР 
