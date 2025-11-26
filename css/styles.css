@@ -107,12 +107,21 @@ button, input, textarea {
     right: 0;
 }
 
+.decor-frame {
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+}
+
 /* =========================
    2. ХЕДЕР 
    ========================= */
 
 .header {
-    background: #7E587E;
+    background: var(--mauve);
     border-bottom: none;
     position: sticky;
     top: 0;
@@ -147,7 +156,7 @@ button, input, textarea {
 .header-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--lemon-light);
+    color: var(--lemon-light); 
 }
 .back-home-wrapper {
     display: flex;
@@ -157,13 +166,13 @@ button, input, textarea {
 }
 
 .divider {
-    color: #F9F871;
+    color: var(--lemon-light);
     font-weight: 300;
     font-size: 18px; 
 }
 
 .back-home-link {
-    color: #F9F871; 
+    color: var(--lemon-light); 
     text-decoration: none;
     font-weight: 600;  
     font-size: 16px;   
@@ -171,14 +180,14 @@ button, input, textarea {
 }
 
 .back-home-link:hover {
-    color: #F9F871;
+    color: var(--lemon-light);
 }
 
 /* Для головної: логотип,Контакти,юзер */
 .logo {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #F9F871; 
+    color: var(--lemon-light); 
     cursor: pointer;
     transition: color 0.2s;
 }
@@ -222,17 +231,17 @@ button, input, textarea {
 .user-name {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #F9F871; 
+    color: var(--lemon-light); 
 }
 
 .user-subtitle {
     font-size: 0.75rem;
-    color: #F9F871;
+    color: var(--lemon-light);
 }
 
 .logout-btn {
     font-size: 0.75rem;
-    color: #F9F871; 
+    color: var(--lemon-light); 
     background: none;
     border: none;
     cursor: pointer;
@@ -264,12 +273,12 @@ button, input, textarea {
 }
 
 .contacts-btn {
-    color: #1f2937;
+    color: var(--lemon-light);
     transition: color 0.2s;
 }
 
 .contacts-btn:hover {
-    color: #2563eb;
+    color: #ffc;
 }
 
 .contacts-panel {
@@ -300,8 +309,6 @@ button, input, textarea {
     font-size: 0.9rem;
 }
 
-
-
 /* =========================
    4. ГОЛОВНА СТОРІНКА (index.html)
    ========================= */
@@ -310,24 +317,24 @@ button, input, textarea {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    background-color: transparent;
 }
 
-/* Карусель новин */
 .news-carousel {
-    background: #f9fafb;
+    background: transparent; 
     border-radius: 0.5rem;
-    padding: 2rem 1rem;
+    padding: 0; 
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
 }
 
-/* Контейнер з картками */
 .news-wrapper {
     display: flex;
     gap: 1rem;
-    padding: 0 3rem;
+    padding: 2rem 0; 
     overflow: hidden;
+    justify-content: center;
 }
 
 /* Для логіки карусель*/
@@ -348,6 +355,11 @@ button, input, textarea {
     border-radius: 0.5rem;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: 280px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .news-image {
@@ -355,7 +367,7 @@ button, input, textarea {
     background: #e5e7eb;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
-    display: flex;
+    display: flex !important; 
     align-items: center;
     justify-content: center;
 }
@@ -365,13 +377,17 @@ button, input, textarea {
     text-align: center;
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    display: block !important; 
+    color: #111827; 
 }
 
 .news-content {
     font-size: 0.875rem;
     color: #6b7280;
     text-align: center;
+    display: block !important; 
 }
+
 
 /* Стрілки каруселі */
 .carousel-btn {
@@ -387,10 +403,11 @@ button, input, textarea {
     cursor: pointer;
     z-index: 10;
     transition: all 0.2s;
+    color: #4c1d95; 
 }
 
 .carousel-btn:hover {
-    background: #f9fafb;
+    background: #e5e7eb;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
@@ -404,14 +421,15 @@ button, input, textarea {
 
 /* Швидкі дії */
 .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex; 
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .action-btn {
-    background: #d1d5db;
+    flex: 1 1 calc(25% - 0.75rem); 
+    background: var(--mauve);
     padding: 1.5rem 1rem;
     border-radius: 0.5rem;
     text-align: center;
@@ -420,16 +438,17 @@ button, input, textarea {
     border: none;
     transition: background 0.2s;
     font-size: 0.9rem;
+    color: var(--lemon-light); 
 }
 
 .action-btn:hover {
-    background: #9ca3af;
+    background: var(--mauve-50);
 }
 
-/* Нижня сітка */
+
+/* Home Grid (Flexbox) */
 .home-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex; 
     gap: 1rem;
 }
 
@@ -437,6 +456,11 @@ button, input, textarea {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex: 1; 
+}
+
+.home-grid > *:not(.grid-left) {
+    flex: 2; 
 }
 
 .info-card {
@@ -474,27 +498,77 @@ button, input, textarea {
 }
 
 .left-btn {
-    flex: 1; 
-    background: white;
-    border: 1px solid #e5e7eb;
+    flex: 1 1 100%; 
+    background-color: #fdf2f8; 
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: 
+        url('../Assets/top.png'), 
+        url('../Assets/bottom.png'), 
+        url('../Assets/left.png'), 
+        url('../Assets/right.png');
+    background-position: 
+        top center, 
+        bottom center, 
+        left center, 
+        right center;
+    background-repeat: 
+        repeat-x, 
+        repeat-x, 
+        repeat-y, 
+        repeat-y;
+    background-size: 
+        auto 10px, 
+        auto 10px, 
+        10px auto, 
+        10px auto; 
+    
     border-radius: 12px;
     padding: 32px;
     font-size: 20px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
+    transition: background-color 0.2s;
+    color: #4c1d95; 
 }
 
 .left-btn:hover {
-    background: #f9fafb;
+    background-color: #fce7f3;
 }
 
 /* FAQ  */
 .faq-container {
     flex: 3;               
-    background: white;
-    border: 1px solid #e5e7eb;
+    background-color: #fdf2f8; 
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: 
+        url('../Assets/top.png'), 
+        url('../Assets/bottom.png'), 
+        url('../Assets/left.png'), 
+        url('../Assets/right.png');
+    background-position: 
+        top center, 
+        bottom center, 
+        left center, 
+        right center;
+    background-repeat: 
+        repeat-x, 
+        repeat-x, 
+        repeat-y, 
+        repeat-y;
+    background-size: 
+        auto 10px, 
+        auto 10px, 
+        10px auto, 
+        10px auto; 
+
+    
     border-radius: 12px;
     padding: 24px;
     display: flex;
@@ -505,10 +579,11 @@ button, input, textarea {
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    color: #4c1d95;
 }
 
 .faq-item {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e9d5ff; 
 }
 
 .faq-question-btn {
@@ -522,10 +597,11 @@ button, input, textarea {
     align-items: center;
     text-align: left;
     transition: background 0.15s;
+    color: #4c1d95; 
 }
 
 .faq-question-btn:hover {
-    background: #f9fafb;
+    background: #fce7f3;
 }
 
 .faq-question-text {
@@ -552,24 +628,64 @@ button, input, textarea {
     display: block;
 }
 
-/* Adaptive */
-@media (max-width: 900px) {
-    .bottom-section {
-        grid-template-columns: 1fr;
-    }
-}
 
-/* Адаптив головної */
-@media (max-width: 768px) {
+/* Адаптив для планшетів (до 1024px) */
+@media (max-width: 1024px) {
     .home-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .action-btn {
+        flex: 1 1 calc(50% - 0.5rem); 
     }
     
-    .quick-actions {
-        grid-template-columns: repeat(2, 1fr);
+    .bottom-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .left-boxes {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .left-boxes > .left-btn {
+        flex: 1 1 calc(50% - 8px);
     }
 }
 
+/* Адаптив для телефонів (до 768px) */
+@media (max-width: 768px) {
+    
+    .action-btn {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+
+    .left-boxes {
+        flex-direction: column;
+    }
+
+    .left-boxes > .left-btn {
+        flex: 1 1 100%;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .left-btn {
+        padding: 24px;
+        font-size: 18px;
+    }
+}
+
+/* Адаптив для найменших екранів (до 640px) */
+@media (max-width: 640px) {
+    .action-btn {
+        flex: 1 1 100%;
+    }
+}
 
 /* =========================
    5. ЛОГІН (login.html)
@@ -588,28 +704,38 @@ button, input, textarea {
     border-radius: 0.5rem;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .login-header {
-    background: white;
+    background: var(--mauve);
     padding: 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: none; 
     border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .login-header h1 {
     font-size: 1.5rem;
     font-weight: 700;
+    color: var(--lemon-light); 
 }
 
 .login-body {
     padding: 2rem;
+    background: white; 
 }
 
 .login-form-wrapper {
-    background: #e5e7eb;
+    background: var(--mauve-30); 
     padding: 2rem;
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.5rem;
 }
 
@@ -629,8 +755,8 @@ button, input, textarea {
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
     color: var(--mauve);
+    margin-bottom: 0.5rem;
 }
 
 .form-input {
@@ -645,7 +771,7 @@ button, input, textarea {
 .form-input:focus {
     outline: none;
     border-color: var(--mauve);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px var(--mauve-30); 
 }
 
 
@@ -657,28 +783,34 @@ button, input, textarea {
 .forgot-password button {
     background: none;
     border: none;
-    color: #2563eb;
+    color: #dc2626; 
     font-size: 0.875rem;
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .forgot-password button:hover {
-    color: #1d4ed8;
+    color: #b91c1c; 
 }
 
 /* Кнопки */
 .btn-primary {
     width: 100%;
-    background: var(--mauve);
+    background: var(--mauve); 
     color: var(--lemon-light);
     padding: 0.75rem;
-    border: none;
+    border: none; 
     border-radius: 0.5rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background: var(--rosewood); 
+    color: var(--lemon-light);
+    border-color: var(--mauve);
 }
 
 .btn-small {
@@ -748,7 +880,7 @@ button, input, textarea {
 .content-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
     margin: 0;
 }
 
@@ -767,7 +899,14 @@ button, input, textarea {
 .sidebar-card,
 .sidebar-content {
     background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid #e5e7eb;
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.75rem;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -837,7 +976,7 @@ button, input, textarea {
 .address-item-sidebar small {
     display: block;
     margin-top: 0.25rem;
-    color: #6b7280;
+    color: var(--mauve);
     font-size: 0.75rem;
 }
 
@@ -866,9 +1005,21 @@ button, input, textarea {
 /* універсальні картки */
 .card {
     background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid #e5e7eb;
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.5rem;
     padding: 1.5rem;
+    margin-bottom: 1.75rem; 
+}
+
+.tab-content .card:last-child {
+    margin-bottom: 0;
 }
 
 .card-header {
@@ -902,7 +1053,7 @@ button, input, textarea {
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
-    background: white;
+    background: var(--mauve-30); 
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -912,9 +1063,16 @@ button, input, textarea {
 }
 
 .account-card.active {
-    background: #eff6ff;
-    border-color: #93c5fd;
+    background: var(--mauve-70);
+    border-color: var(--mauve-70);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.account-card.active .account-type,
+.account-card.active .account-number,
+.account-card.active .account-address,
+.account-card.active .account-icon {
+    color: var(--lemon-light) !important;
 }
 
 .account-card-content {
@@ -925,6 +1083,7 @@ button, input, textarea {
 .account-icon {
     font-size: 2rem;
     line-height: 1;
+    color: var(--mauve);
 }
 
 .account-details {
@@ -942,7 +1101,7 @@ button, input, textarea {
 
 .account-type {
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -950,13 +1109,13 @@ button, input, textarea {
 
 .account-number {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .account-address {
     font-size: 0.75rem;
-    color: #9ca3af;
+    color: var(--mauve);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1042,8 +1201,15 @@ button, input, textarea {
 
 /* Верхня частина контенту */
 .content-header {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.7);
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.5rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -1060,7 +1226,7 @@ button, input, textarea {
 .content-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
@@ -1072,7 +1238,7 @@ button, input, textarea {
 
 .account-number-display {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 /* Таби */
@@ -1093,7 +1259,7 @@ button, input, textarea {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #6b7280;
+    color: var(--mauve);
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
@@ -1108,14 +1274,14 @@ button, input, textarea {
 }
 
 .tab.active {
-    color: #2563eb;
-    border-bottom-color: #2563eb;
+    color: var(--mauve);
+    border-bottom-color: var(--mauve);
 }
 
 .tab-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
 }
 
 /* Сітка в картках */
@@ -1131,14 +1297,13 @@ button, input, textarea {
 
 .field-label {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .field-value {
     font-size: 1rem;
-    font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
 }
 
 /* Платежі, рахунки */
@@ -1154,14 +1319,15 @@ button, input, textarea {
     gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #2563eb;
+    color: var(--mauve);
     background: none;
     border: none;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
 .link-btn:hover {
-    color: #1d4ed8;
+    color: var(--rosewood);
 }
 
 .payment-list {
@@ -1184,19 +1350,19 @@ button, input, textarea {
 
 .payment-info p:first-child {
     font-size: 1rem;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .payment-info p:last-child {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 .payment-amount {
     font-size: 1rem;
     font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .bill-item {
@@ -1216,13 +1382,13 @@ button, input, textarea {
 .bill-info p:first-child {
     font-size: 1rem;
     font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .bill-info p:last-child {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 .bill-actions {
@@ -1232,8 +1398,11 @@ button, input, textarea {
 }
 
 .balance-card {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+    border: 1px solid var(--rosewood); 
+    box-shadow: none;
+    background-image: none; 
+    
+    background-color: var(--peach-bright);
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -1241,7 +1410,7 @@ button, input, textarea {
 
 .balance-label {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
@@ -1253,24 +1422,36 @@ button, input, textarea {
 
 /* Чекбокси */
 .checkbox-option {
+    border: 1px solid var(--mauve-30); 
+    box-shadow: none;
+    background-image: none;
+
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding: 1rem;
-    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .checkbox-option:hover {
-    background: #f9fafb;
+    background: var(--mauve-30);
+    border-color: var(--mauve);
+}
+
+.checkbox-option.active {
+    background: var(--mauve-30);
+    border-color: var(--mauve-70);
+    box-shadow: 0 0 0 1px var(--mauve-70); 
 }
 
 .checkbox-option input[type="checkbox"] {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
+    accent-color: var(--mauve);
 }
 
 .checkbox-content {
@@ -1279,18 +1460,22 @@ button, input, textarea {
 
 .checkbox-content p:first-child {
     font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .checkbox-content p:last-child {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 /* Підсумок і автосписання */
 .total-card {
-    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+    background-image: none;
+    
+    background-color: #f9fafb;
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -1304,18 +1489,21 @@ button, input, textarea {
 
 .total-label {
     font-size: 1rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 .total-amount {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .autopay-card {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    border: 1px solid var(--teal-muted);
+    box-shadow: none;
+    background-image: none;
+
+    background-color: var(--teal-muted);
     border-radius: 0.5rem;
     padding: 1rem;
 }
@@ -1335,36 +1523,49 @@ button, input, textarea {
 .autopay-info svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: #16a34a;
+    color: var(--lemon-light);
 }
 
 .autopay-text p:first-child {
     font-weight: 500;
-    color: #14532d;
+    color: var(--lemon-light);
     margin-bottom: 0.25rem;
 }
 
 .autopay-text p:last-child {
     font-size: 0.875rem;
-    color: #15803d;
+    color: var(--lemon-light);
 }
 
 /* Небезпечні дії */
 .danger-card {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+    border: 1px solid var(--mauve-70);
+    box-shadow: none;
+    background-image: none;
+
+    background-color: var(--mauve-70);
     border-radius: 0.5rem;
     padding: 1.5rem;
 }
 
 .danger-card .card-title {
-    color: #7f1d1d;
+    color: var(--lemon-light);
 }
 
 .danger-card p {
     font-size: 0.875rem;
-    color: #991b1b;
+    color: var(--lemon-light);
     margin-bottom: 1rem;
+}
+
+.danger-card .btn-danger {
+    background: var(--mauve);
+    color: var(--lemon-light);
+}
+
+.danger-card .btn-danger:hover {
+    background: var(--rosewood);
+    color: var(--lemon-light);
 }
 
 .document-item {
@@ -1378,7 +1579,7 @@ button, input, textarea {
 
 .document-item span {
     font-size: 0.875rem;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .select-input {
