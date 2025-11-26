@@ -602,7 +602,7 @@ button, input, textarea {
     font-size: 0.875rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: #374151;
+    color: var(--mauve);
 }
 
 .form-input {
@@ -616,7 +616,7 @@ button, input, textarea {
 
 .form-input:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: var(--mauve);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
@@ -642,8 +642,8 @@ button, input, textarea {
 /* Кнопки */
 .btn-primary {
     width: 100%;
-    background: #2563eb;
-    color: white;
+    background: var(--mauve);
+    color: var(--lemon-light);
     padding: 0.75rem;
     border: none;
     border-radius: 0.5rem;
@@ -651,10 +651,6 @@ button, input, textarea {
     cursor: pointer;
     transition: background 0.2s;
     font-size: 1rem;
-}
-
-.btn-primary:hover {
-    background: #1d4ed8;
 }
 
 .btn-small {
@@ -752,7 +748,7 @@ button, input, textarea {
 .sidebar-title {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.75rem;
 }
 
@@ -857,7 +853,7 @@ button, input, textarea {
 .card-title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
 }
 
 /* =========================
@@ -1002,18 +998,18 @@ button, input, textarea {
 .status-active,
 .status-success,
 .status-badge.active {
-    background: #d1fae5;
-    color: #065f46;
+    background: var(--teal-muted);
+    color: var(--lemon-light);
 }
 
 .status-badge.debt {
-    background: #fee2e2;
-    color: #991b1b;
+    background: var(--peach-bright);
+    color: var(--mauve);
 }
 
 .status-badge.pending {
-    background: #fef3c7;
-    color: #92400e;
+    background: var(--amber-soft);
+    color: var(--mauve);
 }
 
 /* Верхня частина контенту */
@@ -1377,7 +1373,7 @@ button, input, textarea {
     padding: 0.75rem;
     border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
-    background-color: #ffffff;
+    background-color: var(--mauve-30);
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -1387,13 +1383,16 @@ button, input, textarea {
 }
 
 .address-btn.active {
-    background-color: #eff6ff;
-    border-color: #93c5fd;
+    background-color: var(--mauve-70);
+}
+
+.address-btn.active p{
+    color: var(--lemon-light);
 }
 
 .address-btn p {
     font-size: 0.875rem;
-    color: #111827;
+    color: var(--mauve);
 }
 
 /* Послуги */
@@ -1410,26 +1409,32 @@ button, input, textarea {
     padding: 0.625rem 0.75rem;
     border: none;
     border-radius: 0.5rem;
-    background-color: #f9fafb;
-    color: #374151;
+    background-color: var(--mauve-30);
+    color: var(--mauve);
     cursor: pointer;
     transition: all 0.2s;
     width: 100%;
     text-align: left;
 }
 
-.service-btn:hover {
-    background-color: #f3f4f6;
-}
-
 .service-btn.active {
-    background-color: #2563eb;
-    color: #ffffff;
+    background-color: var(--mauve-70);
+    color: var(--lemon-light);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .service-icon {
     font-size: 1.125rem;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .service-name {
@@ -1460,20 +1465,20 @@ button, input, textarea {
 .service-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.5rem;
 }
 
 .service-subtitle {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.5rem;
 }
 
 .unsubmitted-btn {
     padding: 0.5rem 1rem;
-    background-color: #fce7f3;
-    color: #be185d;
+    background-color: var(--peach-bright);
+    color: var(--mauve);
     border: none;
     border-radius: 0.5rem;
     font-size: 0.875rem;
@@ -1484,7 +1489,8 @@ button, input, textarea {
 }
 
 .unsubmitted-btn:hover {
-    background-color: #fbcfe8;
+    background-color: var(--mauve-70);
+    color: var(--lemon-light);
 }
 
 /* Інфо по лічильнику */
@@ -1496,8 +1502,7 @@ button, input, textarea {
 
 .info-card {
     padding: 1rem;
-    background-color: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background-color: var(--mauve-30);
     border-radius: 0.5rem;
 
     display: flex;
@@ -1511,8 +1516,7 @@ button, input, textarea {
 
 
 .info-card-highlight {
-    background-color: #eff6ff;
-    border-color: #bfdbfe;
+    background-color: var(--mauve-70);
 }
 
 .info-card-header {
@@ -1533,13 +1537,13 @@ button, input, textarea {
 
 
 .info-card-highlight .info-card-header p {
-    color: #1e40af;
+    color: var(--lemon-light);
 }
 
 .info-card-value {
     font-size: 1rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .info-card-value-success {
@@ -1549,7 +1553,7 @@ button, input, textarea {
 .info-card-value-large {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: var(--lemon-light);
 }
 .info-card-value-large {
     white-space: nowrap;
@@ -1557,13 +1561,13 @@ button, input, textarea {
 
 .info-card-detail {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-top: 0.25rem;
 }
 
 .info-card-detail-highlight {
     font-size: 0.75rem;
-    color: #2563eb;
+    color: var(--lemon-light);
     margin-top: 0.25rem;
 }
 
@@ -1589,7 +1593,7 @@ button, input, textarea {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: #2563eb;
+    color: var(--coral-soft);
     background: none;
     border: none;
     font-size: 0.875rem;
@@ -1605,17 +1609,13 @@ button, input, textarea {
 .btn-submit {
     flex: 1;
     padding: 0.75rem 1rem;
-    background-color: #2563eb;
-    color: #ffffff;
+    background-color: var(--mauve);
+    color: var(--lemon-light);
     border: none;
     border-radius: 0.5rem;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-.btn-submit:hover {
-    background-color: #1d4ed8;
 }
 
 .btn-cancel {
@@ -1645,13 +1645,12 @@ button, input, textarea {
     align-items: flex-start;
     gap: 0.75rem;
     padding: 1rem;
-    background-color: #eff6ff;
-    border: 1px solid #bfdbfe;
+    background-color: var(--mauve-70);
     border-radius: 0.5rem;
 }
 
 .alert-info svg {
-    stroke: #2563eb;
+    stroke: var(--lemon-light);
     flex-shrink: 0;
     margin-top: 0.125rem;
 }
@@ -1659,18 +1658,18 @@ button, input, textarea {
 .alert-title {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #1e3a8a;
+    color: var(--lemon-light)
 }
 
 .alert-value {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: var(--lemon-light);
 }
 
 .alert-date {
     font-size: 0.75rem;
-    color: #1d4ed8;
+    color: var(--lemon-light);
 }
 
 .consumption-info {
@@ -1733,7 +1732,7 @@ button, input, textarea {
 }
 
 .history-table thead tr {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--mauve);
 }
 
 .history-table th {
@@ -1741,22 +1740,22 @@ button, input, textarea {
     text-align: left;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #374151;
+    color: var(--mauve);
 }
 
 .history-table td {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .history-table tbody tr {
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--mauve);
     transition: background-color 0.2s;
 }
 
 .history-table tbody tr:hover {
-    background-color: #f9fafb;
+    background-color: var(--mauve-30);
 }
 
 .table-footer {
@@ -1768,7 +1767,7 @@ button, input, textarea {
 
 .table-footer-text {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 /* Статистика споживання */
@@ -1782,22 +1781,18 @@ button, input, textarea {
 .stat-card {
     padding: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid;
 }
 
 .stat-card-blue {
-    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    border-color: #bfdbfe;
+    background: rgba(180, 103, 135, 0.5);
 }
 
 .stat-card-green {
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-color: #bbf7d0;
+    background: rgba(71, 129, 125, 0.5);
 }
 
 .stat-card-purple {
-    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-    border-color: #e9d5ff;
+    background: rgba(227, 125, 129, 0.5);
 }
 
 .stat-label {
@@ -1805,18 +1800,18 @@ button, input, textarea {
     margin-bottom: 0.25rem;
 }
 
-.stat-card-blue .stat-label { color: #1d4ed8; }
-.stat-card-green .stat-label { color: #15803d; }
-.stat-card-purple .stat-label { color: #7e22ce; }
+.stat-card-blue .stat-label { color: var(--lemon-light); }
+.stat-card-green .stat-label { color: var(--lemon-light); }
+.stat-card-purple .stat-label { color: var(--lemon-light); }
 
 .stat-value {
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-.stat-card-blue .stat-value { color: #1e3a8a; }
-.stat-card-green .stat-value { color: #14532d; }
-.stat-card-purple .stat-value { color: #581c87; }
+.stat-card-blue .stat-value { color: var(--lemon-light); }
+.stat-card-green .stat-value { color: var(--lemon-light); }
+.stat-card-purple .stat-value { color: var(--lemon-light); }
 
 .stat-trend {
     display: flex;
@@ -1826,12 +1821,12 @@ button, input, textarea {
 }
 
 .stat-trend svg {
-    stroke: #2563eb;
+    stroke: var(--lemon-light);
 }
 
 .stat-trend span {
     font-size: 0.75rem;
-    color: #1d4ed8;
+    color: var(--lemon-light);
 }
 
 .stat-detail {
@@ -1839,8 +1834,8 @@ button, input, textarea {
     margin-top: 0.5rem;
 }
 
-.stat-card-green .stat-detail { color: #15803d; }
-.stat-card-purple .stat-detail { color: #7e22ce; }
+.stat-card-green .stat-detail { color: var(--lemon-light); }
+.stat-card-purple .stat-detail { color:var(--lemon-light); }
 
 /* Нагадування */
 .alert-warning {
@@ -1848,13 +1843,13 @@ button, input, textarea {
     align-items: flex-start;
     gap: 0.75rem;
     padding: 1rem;
-    background-color: #fef3c7;
+    background-color: rgba(255, 200, 103, 0.7);
     border: 1px solid #fde68a;
     border-radius: 0.5rem;
 }
 
 .alert-warning svg {
-    stroke: #d97706;
+    stroke: var(--mauve);
     flex-shrink: 0;
     margin-top: 0.125rem;
 }
@@ -1862,13 +1857,13 @@ button, input, textarea {
 .alert-warning-title {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #78350f;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .alert-warning-text {
     font-size: 0.875rem;
-    color: #92400e;
+    color: var(--mauve);
 }
 
 /* =========================
