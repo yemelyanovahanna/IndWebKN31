@@ -3,7 +3,7 @@ const metersByAddress = {
     address1: {
         electricity: {
             name: 'Електрика',
-            icon: '⚡',
+            icon: '',
             serialNumber: '123456789',
             type: 'денний/нічний',
             unit: 'кВт⋅год',
@@ -33,7 +33,7 @@ const metersByAddress = {
 
         cold_water: {
             name: 'Холодна вода',
-            icon: '💧',
+            icon: '',
             serialNumber: '987654321',
             type: 'однотарифний',
             unit: 'м³',
@@ -63,7 +63,7 @@ const metersByAddress = {
 
         hot_water: {
             name: 'Гаряча вода',
-            icon: '♨️',
+            icon: '',
             serialNumber: '456789123',
             type: 'однотарифний',
             unit: 'м³',
@@ -93,7 +93,7 @@ const metersByAddress = {
 
         heating: {
             name: 'Тепло',
-            icon: '🔥',
+            icon: '',
             serialNumber: '789123456',
             type: 'централізоване',
             unit: 'Гкал',
@@ -123,7 +123,7 @@ const metersByAddress = {
 
         maintenance: {
             name: 'Утримання будинку',
-            icon: '🏢',
+            icon: '',
             serialNumber: 'N/A',
             type: 'фіксована плата',
             unit: '₴',
@@ -155,7 +155,7 @@ const metersByAddress = {
     address2: {
         electricity: {
             name: 'Електрика',
-            icon: '⚡',
+            icon: '',
             serialNumber: '555222111',
             type: 'денний/нічний',
             unit: 'кВт⋅год',
