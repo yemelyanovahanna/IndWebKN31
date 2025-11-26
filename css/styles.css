@@ -1243,7 +1243,7 @@ button, input, textarea {
 
 /* Таби */
 .tabs-container {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--coral-soft);
 }
 
 .tabs {
@@ -1274,8 +1274,8 @@ button, input, textarea {
 }
 
 .tab.active {
-    color: var(--mauve);
-    border-bottom-color: var(--mauve);
+    color: var(--coral-soft);
+    border-bottom-color: var(--coral-soft);
 }
 
 .tab-content {
@@ -1319,7 +1319,7 @@ button, input, textarea {
     gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--mauve);
+    color: var(--coral-soft);
     background: none;
     border: none;
     cursor: pointer;
