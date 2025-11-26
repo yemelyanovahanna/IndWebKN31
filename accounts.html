@@ -26,7 +26,7 @@
                     <div class="content-title-wrapper">
                         <h1 class="header-title">Київ Комун Сервіс</h1>
                         <p class="user-subtitle">Особистий кабінет</p>
-                    </div>  
+                    </div>
                     <div class="back-home-wrapper">
                         <span class="divider">|</span>
                         <a href="index.html" class="back-home-link">На головну</a>
@@ -43,58 +43,58 @@
     </header>
 
     <div class="main-container">
-    <div class="content-wrapper">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
 
-            
-            <div class="sidebar-card">
-                <nav class="nav-menu">
-                    <a href="profile.html" class="nav-item">
+
+                <div class="sidebar-card">
+                    <nav class="nav-menu">
+                        <a href="profile.html" class="nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Мій профіль і адреси</span>
+                        </a>
+
+                        <a href="accounts.html" class="nav-item active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span>Особові рахунки і договори</span>
+                        </a>
+
+                        <a href="meters.html" class="nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M2 12l10-10 10 10"></path>
+                            </svg>
+                            <span>Лічильники</span>
+                        </a>
+                    </nav>
+                </div>
+
+
+                <div class="sidebar-content">
+                    <h2 class="sidebar-title">Рахунки</h2>
+                    <button class="add-account-btn sidebar-add-account">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        <span>Мій профіль і адреси</span>
-                    </a>
+                        Додати рахунок
+                    </button>
 
-                    <a href="accounts.html" class="nav-item active">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                        <span>Особові рахунки і договори</span>
-                    </a>
-
-                    <a href="meters.html" class="nav-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2v20M2 12l10-10 10 10"></path>
-                        </svg>
-                        <span>Лічильники</span>
-                    </a>
-                </nav>
-            </div>
-
-            
-            <div class="sidebar-content">
-                <h2 class="sidebar-title">Рахунки</h2>
-                <button class="add-account-btn sidebar-add-account">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                    Додати рахунок
-                </button>
-
-                <div class="accounts-list" id="accountsList"></div>
-            </div>
+                    <div class="accounts-list" id="accountsList"></div>
+                </div>
 
 
-            <button class="mobile-logout-btn">Вийти</button>
-        </aside>
+                <button class="mobile-logout-btn">Вийти</button>
+            </aside>
 
 
             <!-- Main Content -->
@@ -150,11 +150,19 @@
                     </div>
                 </div>
 
-                
+
                 <div class="tab-content" id="tabContent"></div>
             </main>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left color-lemon-light">
+                © 2025 Київ Комун Сервіс
+            </div>
+        </div>
+    </footer>
 
     <script src="js/accounts.js"></script>
 </body>
