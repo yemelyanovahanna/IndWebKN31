@@ -107,6 +107,15 @@ button, input, textarea {
     right: 0;
 }
 
+.decor-frame {
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+}
+
 /* =========================
    2. ХЕДЕР 
    ========================= */
