@@ -1,0 +1,2142 @@
+@import 'base.css';
+
+/* =========================
+   0. RESET
+   ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main) !important;
+    background-color: #f9fafb;
+    color: var(--mauve);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+button, input, textarea {
+    font-family: var(--font-main);
+    color: var(--mauve);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Утиліти */
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.font-medium { font-weight: 500; }
+
+.my-gradient-bg {
+    background: linear-gradient(150deg, var(--mauve), var(--coral-soft));
+}
+
+.color-mauve {
+    color: var(--mauve);
+}
+
+.color-rosewood {
+    color: var(--rosewood);
+}
+
+.color-coral-soft {
+    color: var(--coral-soft);
+}
+
+.color-peach-bright {
+    color: var(--peach-bright);
+}
+
+.color-amber-soft {
+    color: var(--amber-soft);
+}
+
+.color-lemon-light {
+    color: var(--lemon-light);
+}
+
+.color-teal-muted {
+    color: var(--teal-muted);
+}
+
+.color-black input{
+    color: #111827;
+}
+
+/* =========================
+   1. FOOTER
+   ========================= */
+.footer {
+    background: #9C6D7B;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: 0 -1px 2px rgba(0,0,0,0.05);
+    padding: 24px 0;
+    text-align: center;
+}
+
+/* =========================
+   2. ХЕДЕР 
+   ========================= */
+
+.header {
+    background: var(--mauve);
+    border-bottom: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: none;
+}
+
+
+.header-content,
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--lemon-light); 
+}
+.back-home-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px; 
+}
+
+.divider {
+    color: var(--lemon-light);
+    font-weight: 300;
+    font-size: 18px; 
+}
+
+.back-home-link {
+    color: var(--lemon-light); 
+    text-decoration: none;
+    font-weight: 600;  
+    font-size: 16px;   
+    transition: color .2s ease;
+}
+
+.back-home-link:hover {
+    color: var(--lemon-light);
+}
+
+/* Для головної: логотип,Контакти,юзер */
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--lemon-light); 
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.logo:hover {
+    color: #ffc; 
+}
+
+
+.header-spacer {
+    flex: 1;
+}
+
+/* Мобільне меню (кабінет) */
+.mobile-menu-btn {
+    display: none;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.mobile-menu-btn:hover {
+    background-color: #f3f4f6;
+}
+
+/* Блок юзера в хедері (усі сторінки з особистим кабінетом + головна) */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: right;
+}
+
+.user-details {
+    text-align: right;
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--lemon-light); 
+}
+
+.user-subtitle {
+    font-size: 0.75rem;
+    color: var(--lemon-light);
+}
+
+.logout-btn {
+    font-size: 0.75rem;
+    color: var(--lemon-light); 
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.logout-btn:hover {
+    color: #ffc; 
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-image: url('../Assets/user.svg'); 
+    background-size: 60%; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* =========================
+   3. ДРОПДАУН "КОНТАКТИ" (головна)
+   ========================= */
+
+.contacts-dropdown {
+    position: relative;
+    margin-right: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.contacts-btn {
+    color: var(--lemon-light);
+    transition: color 0.2s;
+}
+
+.contacts-btn:hover {
+    color: #ffc;
+}
+
+.contacts-panel {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    width: 220px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+}
+
+.contacts-dropdown:hover .contacts-panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.contacts-panel p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   4. ГОЛОВНА СТОРІНКА (index.html)
+   ========================= */
+
+.main-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background-color: transparent;
+}
+
+.news-carousel {
+    background: transparent; 
+    border-radius: 0.5rem;
+    padding: 0; 
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-wrapper {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem 0; 
+    overflow: hidden;
+    justify-content: center;
+}
+
+/* Для логіки карусель*/
+#newsWrapper {
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.slide-animation {
+    transition: transform 0.3s ease;
+    transform: translateX(-20px);
+}
+
+.news-card {
+    flex: 0 0 250px;
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: 280px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.news-image {
+    aspect-ratio: 16/9;
+    background: #e5e7eb;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex !important; 
+    align-items: center;
+    justify-content: center;
+}
+
+.news-title {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    display: block !important; 
+    color: #111827; 
+}
+
+.news-content {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-align: center;
+    display: block !important; 
+}
+
+
+/* Стрілки каруселі */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+    color: #4c1d95; 
+}
+
+.carousel-btn:hover {
+    background: #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.carousel-btn.prev {
+    left: 1rem;
+}
+
+.carousel-btn.next {
+    right: 1rem;
+}
+
+/* Швидкі дії */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.action-btn {
+    background: var(--mauve);
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+    color: var(--lemon-light); 
+}
+
+.action-btn:hover {
+    background: var(--mauve-50);
+}
+
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+}
+
+.grid-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-card {
+    background: #d1d5db;
+    border-radius: 0.5rem;
+    padding: 3rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card h3 {
+    font-weight: 600;
+    text-align: center;
+}
+
+.info-card-large h3 {
+    font-size: 1.125rem;
+}
+
+/* Нижні кнопки  */
+.bottom-section {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    align-items: stretch; 
+}
+
+
+.left-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 2;           
+}
+
+.left-btn {
+    flex: 1; 
+    background-color: #fdf2f8; 
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: 
+        url('../Assets/top.png'), 
+        url('../Assets/bottom.png'), 
+        url('../Assets/left.png'), 
+        url('../Assets/right.png');
+    background-position: 
+        top center, 
+        bottom center, 
+        left center, 
+        right center;
+    background-repeat: 
+        repeat-x, 
+        repeat-x, 
+        repeat-y, 
+        repeat-y;
+    background-size: 
+        auto 10px, 
+        auto 10px, 
+        10px auto, 
+        10px auto; 
+
+    
+    border-radius: 12px;
+    padding: 32px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #4c1d95; 
+}
+
+.left-btn:hover {
+    background-color: #fce7f3;
+}
+
+/* FAQ  */
+.faq-container {
+    flex: 3;               
+    background-color: #fdf2f8; 
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: 
+        url('../Assets/top.png'), 
+        url('../Assets/bottom.png'), 
+        url('../Assets/left.png'), 
+        url('../Assets/right.png');
+    background-position: 
+        top center, 
+        bottom center, 
+        left center, 
+        right center;
+    background-repeat: 
+        repeat-x, 
+        repeat-x, 
+        repeat-y, 
+        repeat-y;
+    background-size: 
+        auto 10px, 
+        auto 10px, 
+        10px auto, 
+        10px auto; 
+    
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #4c1d95;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e9d5ff; 
+}
+
+.faq-question-btn {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    transition: background 0.15s;
+    color: #4c1d95; 
+}
+
+.faq-question-btn:hover {
+    background: #fce7f3;
+}
+
+.faq-question-text {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-right: 1rem;
+}
+
+.faq-answer {
+    padding: 0 0.5rem 1rem;
+    color: #6b7280;
+    display: none;
+}
+
+.faq-arrow {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+/* Adaptive */
+@media (max-width: 900px) {
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Адаптив головної */
+@media (max-width: 768px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   5. ЛОГІН (login.html)
+   ========================= */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-card {
+    background: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.login-header {
+    background: white;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.login-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.login-body {
+    padding: 2rem;
+}
+
+.login-form-wrapper {
+    background: #e5e7eb;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.login-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+.forgot-password {
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+.forgot-password button {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.forgot-password button:hover {
+    color: #1d4ed8;
+}
+
+/* Кнопки */
+.btn-primary {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-small {
+    width: auto;
+    padding: 0.5rem 1rem;
+}
+
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+.btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #dc2626;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+/* =========================
+   6. ЛЕЙАУТ ОСОБИСТОГО КАБІНЕТУ (accounts / meters / profile)
+   ========================= */
+
+.main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.content-header-top {
+    display: flex;
+    align-items: flex-start;    
+    gap: 0.5rem;
+}
+
+.content-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.content-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.user-subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--lemon-light);
+}
+
+/* Сайдбар */
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.sidebar-card,
+.sidebar-content {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+/* Навігація у сайдбарі */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--mauve);
+    font-size: 0.875rem;
+    transition: background 0.15s, color 0.15s;
+}
+
+.nav-item svg {
+    flex-shrink: 0;
+}
+
+.nav-item:hover {
+    background: var(--mauve-30);
+}
+
+.nav-item.active {
+    background:  var(--mauve-70);
+    color: var(--lemon-light);
+}
+
+/* Адреси в сайдбарі (рахунки / профіль) */
+.address-list-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.address-item-sidebar {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.address-item-sidebar.active {
+    border-color: #2563eb;
+    background: #e0edff;
+}
+
+.address-item-sidebar small {
+    display: block;
+    margin-top: 0.25rem;
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+/* Кнопка логуту на мобайлі */
+.mobile-logout-btn {
+    display: none;
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: #f3f4f6;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+/* Основна зона контенту в кабінеті */
+.content-wrapper .main-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* універсальні картки */
+.card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* =========================
+   7. СТОРІНКА РАХУНКІВ (accounts.html)
+   ========================= */
+
+/* Сайдбар з рахунками */
+.accounts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.account-card {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.account-card:hover {
+    border-color: #d1d5db;
+}
+
+.account-card.active {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.account-card-content {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.account-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.account-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.account-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.account-type {
+    font-weight: 600;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.account-number {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.account-address {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.add-account-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    background: none;
+    color: #4b5563;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+
+.add-account-btn:hover {
+    border-color: #9ca3af;
+    color: #374151;
+}
+
+.sidebar-add-account {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    background: #f9fafb;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sidebar-add-account:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+/* Статуси */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-badge svg {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.status-active,
+.status-success,
+.status-badge.active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.debt {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Верхня частина контенту */
+.content-header {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.content-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.account-number-display {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Таби */
+.tabs-container {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabs {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    color: #374151;
+    border-bottom-color: #d1d5db;
+}
+
+.tab.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Сітка в картках */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.card-field {
+    margin-bottom: 0.5rem;
+}
+
+.field-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.field-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+/* Платежі, рахунки */
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #2563eb;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.link-btn:hover {
+    color: #1d4ed8;
+}
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.payment-item:last-child {
+    border-bottom: none;
+}
+
+.payment-info p:first-child {
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.payment-info p:last-child {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.payment-amount {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+.bill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: background 0.2s;
+}
+
+.bill-item:hover {
+    background: #f9fafb;
+}
+
+.bill-info p:first-child {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.bill-info p:last-child {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.bill-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.balance-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.balance-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.balance-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+/* Чекбокси */
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.checkbox-option:hover {
+    background: #f9fafb;
+}
+
+.checkbox-option input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+.checkbox-content {
+    flex: 1;
+}
+
+.checkbox-content p:first-child {
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.checkbox-content p:last-child {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Підсумок і автосписання */
+.total-card {
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.total-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total-label {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.autopay-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.autopay-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.autopay-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.autopay-info svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #16a34a;
+}
+
+.autopay-text p:first-child {
+    font-weight: 500;
+    color: #14532d;
+    margin-bottom: 0.25rem;
+}
+
+.autopay-text p:last-child {
+    font-size: 0.875rem;
+    color: #15803d;
+}
+
+/* Небезпечні дії */
+.danger-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.danger-card .card-title {
+    color: #7f1d1d;
+}
+
+.danger-card p {
+    font-size: 0.875rem;
+    color: #991b1b;
+    margin-bottom: 1rem;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+}
+
+.document-item span {
+    font-size: 0.875rem;
+    color: #111827;
+}
+
+.select-input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background: white;
+    cursor: pointer;
+}
+
+/* =========================
+   8. СТОРІНКА ЛІЧИЛЬНИКІВ (meters.html)
+   ========================= */
+
+/* Адреси */
+.address-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.address-btn:hover {
+    border-color: #d1d5db;
+}
+
+.address-btn.active {
+    background-color: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.address-btn p {
+    font-size: 0.875rem;
+    color: #111827;
+}
+
+/* Послуги */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.service-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: left;
+}
+
+.service-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.service-btn.active {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon {
+    font-size: 1.125rem;
+}
+
+.service-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Заголовок послуги */
+.service-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.service-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.service-icon-large {
+    font-size: 2.25rem;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.service-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.unsubmitted-btn {
+    padding: 0.5rem 1rem;
+    background-color: #fce7f3;
+    color: #be185d;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.unsubmitted-btn:hover {
+    background-color: #fbcfe8;
+}
+
+/* Інфо по лічильнику */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.info-card {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* найсильніша, замінює justify-content:center */
+    text-align: center;
+    gap: 6px;
+}
+
+
+
+.info-card-highlight {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-bottom: 0.75rem;
+    width: 100%;
+}
+
+.empty-placeholder {
+    visibility: hidden;
+    height: 1rem; 
+}
+
+
+.info-card-highlight .info-card-header p {
+    color: #1e40af;
+}
+
+.info-card-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.info-card-value-success {
+    color: #059669;
+}
+
+.info-card-value-large {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+.info-card-value-large {
+    white-space: nowrap;
+}
+
+.info-card-detail {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.info-card-detail-highlight {
+    font-size: 0.75rem;
+    color: #2563eb;
+    margin-top: 0.25rem;
+}
+
+.info-card-detail,
+.info-card-detail-highlight {
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .info-cards {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Кнопки в лічильниках */
+.btn-text {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #2563eb;
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-text:hover {
+    color: #1d4ed8;
+}
+
+.btn-submit {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-cancel {
+    padding: 0.75rem 1.5rem;
+    background-color: #f3f4f6;
+    color: #374151;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #e5e7eb;
+}
+
+/* Форма подання показників */
+.submit-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.alert-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 0.5rem;
+}
+
+.alert-info svg {
+    stroke: #2563eb;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.alert-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e3a8a;
+}
+
+.alert-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.alert-date {
+    font-size: 0.75rem;
+    color: #1d4ed8;
+}
+
+.consumption-info {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #059669;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Порожній стан */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: #6b7280;
+}
+
+.empty-state svg {
+    stroke: #d1d5db;
+    margin-bottom: 0.75rem;
+}
+
+.empty-state p {
+    font-size: 0.875rem;
+}
+
+/* Таблиця історії */
+
+.td-value {
+    text-align: left;
+}
+
+.td-consumption {
+    text-align: left;
+}
+
+.td-status {
+    text-align: left;
+}
+
+#historyTableBody td {
+    text-align: left !important;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table thead tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.history-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.history-table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: #111827;
+}
+
+.history-table tbody tr {
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s;
+}
+
+.history-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.table-footer-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Статистика споживання */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid;
+}
+
+.stat-card-blue {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: #bfdbfe;
+}
+
+.stat-card-green {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-color: #bbf7d0;
+}
+
+.stat-card-purple {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    border-color: #e9d5ff;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-card-blue .stat-label { color: #1d4ed8; }
+.stat-card-green .stat-label { color: #15803d; }
+.stat-card-purple .stat-label { color: #7e22ce; }
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.stat-card-blue .stat-value { color: #1e3a8a; }
+.stat-card-green .stat-value { color: #14532d; }
+.stat-card-purple .stat-value { color: #581c87; }
+
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.stat-trend svg {
+    stroke: #2563eb;
+}
+
+.stat-trend span {
+    font-size: 0.75rem;
+    color: #1d4ed8;
+}
+
+.stat-detail {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.stat-card-green .stat-detail { color: #15803d; }
+.stat-card-purple .stat-detail { color: #7e22ce; }
+
+/* Нагадування */
+.alert-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #fef3c7;
+    border: 1px solid #fde68a;
+    border-radius: 0.5rem;
+}
+
+.alert-warning svg {
+    stroke: #d97706;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.alert-warning-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #78350f;
+    margin-bottom: 0.25rem;
+}
+
+.alert-warning-text {
+    font-size: 0.875rem;
+    color: #92400e;
+}
+
+/* =========================
+   9. СТОРІНКА ПРОФІЛЮ (profile.html)
+   ========================= */
+
+.profile-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.profile-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    background-image: url('../Assets/user1.svg');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--mauve);
+}
+
+.profile-name {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.profile-id {
+    font-size: 0.875rem;
+    color: var(--mauve);
+    margin-top: 0.15rem;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.field-group label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--mauve);
+    margin-bottom: 0.25rem;
+}
+
+.field-group input {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--mauve-30);
+    background: var(--mauve-30);
+    font-size: 0.875rem;
+    outline: none;
+}
+
+.field-group input:focus {
+    border-color: var(--mauve);
+    background: var(--mauve-50);
+}
+
+
+.addresses-main {
+    margin-bottom: 1rem;
+}
+
+.addresses-label {
+    font-size: 0.75rem;
+    color: var(--mauve);
+    margin-bottom: 0.5rem;
+}
+
+.address-list-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.address-row-static {
+    padding: 0.6rem 0.75rem;
+    background: var(--mauve-30);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #111827;
+    cursor: default;
+}
+
+
+.address-row-static + .address-row-static {
+    margin-top: 0.4rem;
+}
+
+.change-password-btn {
+    margin-top: 0.75rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--coral-soft);
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+/* =========================
+   10. АДАПТИВ ДЛЯ КАБІНЕТУ
+   ========================= */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        bottom: 0;
+        width: 320px;
+        background-color: #f9fafb;
+        overflow-y: auto;
+        padding: 1rem;
+        z-index: 90;
+    }
+
+    .sidebar.mobile-open {
+        display: block;
+    }
+
+    .mobile-menu-btn {
+        display: inline-flex;
+    }
+
+    .mobile-logout-btn {
+        display: block;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-title {
+        font-size: 1rem;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .main-container {
+        padding: 1rem;
+    }
+
+    .content-header {
+        padding: 1rem;
+    }
+
+    .content-header-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-header {
+        flex-direction: column;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+    .profile-card {
+        padding: 1.25rem;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
