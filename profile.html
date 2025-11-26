@@ -6,22 +6,22 @@
     <title>Київ Комун Сервіс | Особистий кабінет</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-<header class="header">
-    <div class="header-container">
-        <div class="header-left">
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-               <div class="content-header-top">
+<body class="my-gradient-bg">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="content-header-top">
                     <div class="content-title-wrapper">
                         <h1 class="header-title">Київ Комун Сервіс</h1>
                         <p class="user-subtitle">Особистий кабінет</p>
@@ -29,105 +29,110 @@
                     <div class="back-home-wrapper">
                         <span class="divider">|</span>
                         <a href="index.html" class="back-home-link">На головну</a>
+                    </div>
                 </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <p class="user-name">Олег Сігма</p>
+                </div>
+                <div class="user-avatar"></div>
             </div>
         </div>
-        <div class="header-right">
-            <div class="user-info">
-                <p class="user-name">Олег Сігма</p>
-            </div>
-            <div class="user-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </div>
+    </header>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+
+                <div class="sidebar-card decor-frame">
+                    <nav class="nav-menu">
+                        <a href="profile.html" class="nav-item active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span class="color-lemon-light">Мій профіль і адреси</span>
+                        </a>
+
+                        <a href="accounts.html" class="nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span class="color-mauve">Особові рахунки і договори</span>
+                        </a>
+
+                        <a href="meters.html" class="nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3v18"></path>
+                            </svg>
+                            <span class="color-mauve">Лічильники</span>
+                        </a>
+                    </nav>
+                </div>
+
+
+                <button class="mobile-logout-btn">Вийти</button>
+            </aside>
+
+            <!-- Main -->
+            <main class="main-content">
+                <section class="profile-card decor-frame">
+                    <h2 class="profile-title">Мій профіль і адреси</h2>
+
+                    <div class="profile-header">
+                        <div class="profile-avatar"></div>
+                        <div>
+                            <p class="profile-name">Олег Сігма</p>
+                            <p class="profile-id">ID користувача: <span>000234</span></p>
+                        </div>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="field-group color-black">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" value="olegsigma@sigmoid.ua">
+                        </div>
+                        <div class="field-group color-black">
+                            <label for="phone">Телефон</label>
+                            <input id="phone" type="tel" value="+380 (097) 007-07-07">
+                        </div>
+                    </div>
+
+                    <div class="addresses-main">
+                        <p class="addresses-label">Адреси</p>
+                        <div class="address-list-main" id="addressListMain"></div>
+                    </div>
+
+                    <button class="change-password-btn" type="button">
+                        Змінити пароль
+                    </button>
+                </section>
+            </main>
         </div>
     </div>
-</header>
 
-<div class="main-container">
-    <div class="content-wrapper">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            
-            <div class="sidebar-card">
-                <nav class="nav-menu">
-                    <a href="profile.html" class="nav-item active">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span>Мій профіль і адреси</span>
-                    </a>
 
-                    <a href="accounts.html" class="nav-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                        <span>Особові рахунки і договори</span>
-                    </a>
-
-                    <a href="meters.html" class="nav-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 12h18"></path>
-                            <path d="M12 3v18"></path>
-                        </svg>
-                        <span>Лічильники</span>
-                    </a>
-                </nav>
+    <footer class="footer">
+        <div class="footer-content">
+            <svg class="footer-svg-left" width="259" height="287" viewBox="0 0 259 287" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M200.169 154.183L193.444 149.275L180.512 154.502C180.512 154.502 173.453 166.527 173.003 168.049C172.553 169.57 175.997 188.204 175.997 188.204L190.402 202.683L210.599 207.779L234.362 201.471L247.704 186.632C247.704 186.632 251.687 174.477 251.818 171.401C251.949 168.325 250.271 144.374 250.271 144.374C250.271 144.374 246.328 128.415 244.856 126.811C243.383 125.208 230.36 105.396 230.36 105.396L211.047 97.6418L188.298 98.2149C188.298 98.2149 175.75 103.459 172.977 105.266C170.204 107.074 154.621 120.277 154.621 120.277L143.717 132.139L128.641 133.423C128.641 133.423 125.394 128.278 124.306 126.691C123.218 125.104 115.095 107.812 115.095 107.812L103.446 91.9099C103.446 91.9099 96.7133 78.1429 96.8441 75.0672C96.9749 71.9915 98.725 48.9563 98.725 48.9563L113.874 36.8903L130.406 37.5935L143.135 46.2232L146.906 57.1681L144.828 69.79C144.828 69.79 134.988 74.7637 135.086 72.4569C135.184 70.1502 130.93 61.4957 129.409 61.0459C127.887 60.596 121.769 59.5654 120.083 62.9602C118.398 66.355 117.057 79.7785 117.057 79.7785L128.035 93.3408L146.056 95.2628L165.402 84.1456C165.402 84.1456 171.774 70.1658 171.872 67.859C171.97 65.5522 171.127 40.0958 171.127 40.0958L159.257 20.3329L142.013 9.20018L124.091 4.97143C124.091 4.97143 107.591 3.49936 104.835 4.92275C102.078 6.34613 85.9388 14.5184 85.9388 14.5184L75.2886 29.4718C75.2886 29.4718 71.8615 46.6583 70.9781 49.3168C70.0948 51.9754 72.1894 75.174 72.1894 75.174L82.9137 85.6443L83.5929 96.8428L91.9614 108.368L103.373 120.794L110.056 135.714L110.318 147.665L98.3755 156.786C98.3755 156.786 77.5654 157.057 76.0111 157.376C74.4569 157.695 52.1744 156.362 52.1744 156.362L36.2067 151.446C36.2067 151.446 30.9958 138.129 31.192 133.515C31.3882 128.902 36.4676 109.089 36.4676 109.089L49.5147 101.171L61.6703 105.154L65.2781 119.944L65.0083 135.339L73.9084 143.42C73.9084 143.42 85.7368 136.991 86.2193 134.7C86.7018 132.41 87.2495 110.479 87.2495 110.479L78.2102 96.6139L69.8581 84.7039C69.8581 84.7039 54.6921 79.0518 52.3854 78.9536C50.0785 78.8555 29.0886 83.355 29.0886 83.355C29.0886 83.355 17.4158 95.1836 15.379 97.7931C13.3422 100.403 8.7944 116.771 7.96008 118.276C7.12575 119.781 5.37566 142.817 5.69471 144.371C6.01364 145.925 13.319 164.338 13.319 164.338L38.7021 174.277L58.0481 181.262L63.0624 181.09L86.5147 182.088L100.086 179.969L110.728 174.259L118.728 167.281L126.482 166.07C126.482 166.07 135.734 174.937 135.669 176.475C135.603 178.013 145.166 197.678 145.166 197.678L151.302 216.426L151.523 238.39L144.669 254.66L119.916 257.074C119.916 257.074 102.778 252.493 101.257 252.043C99.7353 251.594 88.3238 239.168 88.3238 239.168C88.3238 239.168 88.9124 225.327 90.8838 224.256C92.8552 223.184 110.189 223.151 110.189 223.151L114.328 234.497L126.721 241.957C126.721 241.957 136.406 231.584 136.872 229.678C137.339 227.772 136.618 208.484 136.618 208.484L120.978 195.878L95.4396 198.644L78.4171 209.475C78.4171 209.475 65.7628 226.269 65.6974 227.806C65.632 229.344 70.8677 251.136 70.8677 251.136L82.5655 265.884L106.345 277.295C106.345 277.295 123.131 281.09 124.669 281.156C126.207 281.221 146.526 274.382 146.526 274.382L165.569 261.326L173.511 246.643L175.049 228.606L170.181 207.215L160.921 189.489L148.569 172.017L146.466 158.061L156.217 146.151L173.582 127.246L190.793 121.046L213.747 124.718L220.512 137.716L222.516 153.978L219.31 175.025L209.257 184.997L196.668 182.151C196.668 182.151 192.749 174.666 192.815 173.128C192.88 171.59 195.98 162.093 195.98 162.093L200.169 154.183Z" fill="#F9F871" />
+            </svg>
+            <div class="footer-left">
+                © 2025 Київ Комун Сервіс
             </div>
+            <svg class="footer-svg-right" width="247" height="277" viewBox="0 0 247 277" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M51.6568 149.884L58.381 144.976L71.3136 150.203C71.3136 150.203 78.3728 162.228 78.8227 163.749C79.2724 165.271 75.8283 183.905 75.8283 183.905L61.4228 198.383L41.2261 203.479L17.4631 197.172L4.1217 182.333C4.1217 182.333 0.138271 170.177 0.00745396 167.102C-0.123365 164.026 1.55399 140.075 1.55399 140.075C1.55399 140.075 5.49714 124.115 6.96957 122.512C8.44206 120.909 21.4651 101.097 21.4651 101.097L40.7785 93.3425L63.5274 93.9156C63.5274 93.9156 76.0755 99.1593 78.8485 100.967C81.6215 102.775 97.2043 115.978 97.2043 115.978L108.108 127.839L123.184 129.124C123.184 129.124 126.432 123.979 127.52 122.392C128.608 120.805 136.731 103.512 136.731 103.512L148.379 87.6105C148.379 87.6105 155.112 73.8436 154.981 70.7678C154.85 67.6921 153.1 44.6569 153.1 44.6569L137.951 32.591L121.419 33.2942L108.691 41.9239L104.919 52.8688L106.997 65.4907C106.997 65.4907 116.837 70.4644 116.739 68.1576C116.641 65.8508 120.895 57.1964 122.417 56.7465C123.938 56.2967 130.057 55.2661 131.742 58.6609C133.427 62.0556 134.768 75.4791 134.768 75.4791L123.79 89.0415L105.769 90.9635L86.4237 79.8463C86.4237 79.8463 80.0517 65.8664 79.9536 63.5596C79.8554 61.2529 80.6985 35.7964 80.6985 35.7964L92.5682 16.0336L109.812 4.90085L127.735 0.672095C127.735 0.672095 144.234 -0.799975 146.991 0.623413C149.747 2.0468 165.887 10.2191 165.887 10.2191L176.537 25.1725C176.537 25.1725 179.964 42.3589 180.847 45.0175C181.731 47.676 179.636 70.8747 179.636 70.8747L168.912 81.345L168.232 92.5435L159.864 104.069L148.453 116.494L141.769 131.415L141.507 143.366L153.45 152.487C153.45 152.487 174.26 152.757 175.814 153.076C177.368 153.395 199.651 152.062 199.651 152.062L215.619 147.147C215.619 147.147 220.83 133.83 220.633 129.216C220.437 124.602 215.358 104.79 215.358 104.79L202.311 96.8715L190.155 100.855L186.547 115.644L186.817 131.039L177.917 139.121C177.917 139.121 166.089 132.691 165.606 130.401C165.124 128.11 164.576 106.18 164.576 106.18L173.615 92.3146L181.967 80.4045C181.967 80.4045 197.133 74.7524 199.44 74.6543C201.747 74.5562 222.737 79.0557 222.737 79.0557C222.737 79.0557 234.41 90.8843 236.446 93.4938C238.483 96.1033 243.031 112.472 243.865 113.977C244.7 115.482 246.45 138.517 246.131 140.071C245.812 141.626 238.506 160.039 238.506 160.039L213.123 169.977L193.777 176.963L188.763 176.791L165.311 177.788L151.74 175.669L141.098 169.959L133.098 162.982L125.343 161.771C125.343 161.771 116.091 170.638 116.157 172.176C116.222 173.714 106.659 193.378 106.659 193.378L100.523 212.127L100.302 234.09L107.157 250.361L131.91 252.774C131.91 252.774 149.047 248.194 150.569 247.744C152.09 247.294 163.502 234.869 163.502 234.869C163.502 234.869 162.913 221.028 160.942 219.956C158.97 218.885 141.637 218.852 141.637 218.852L137.497 230.198L125.104 237.657C125.104 237.657 115.419 227.285 114.953 225.379C114.487 223.473 115.207 204.184 115.207 204.184L130.848 191.579L156.386 194.344L173.408 205.175C173.408 205.175 186.063 221.969 186.128 223.507C186.193 225.045 180.958 246.837 180.958 246.837L169.26 261.585L145.48 272.996C145.48 272.996 128.694 276.791 127.157 276.856C125.619 276.922 105.299 270.083 105.299 270.083L86.2565 257.027L78.3139 242.344L76.7765 224.307L81.6441 202.916L90.9045 185.19L103.256 167.718L105.359 153.762L95.6089 141.852L78.243 122.947L61.0312 116.747L38.0773 120.419L31.3128 133.417L29.3089 149.678L32.5153 170.725L42.5682 180.697L55.1567 177.851C55.1567 177.851 59.0756 170.366 59.0099 168.828C58.9441 167.29 55.8441 157.793 55.8441 157.793L51.6568 149.884Z" fill="#F9F871" />
+            </svg>
+        </div>
+    </footer>
 
-
-            <button class="mobile-logout-btn">Вийти</button>
-        </aside>
-
-        <!-- Main -->
-        <main class="main-content">
-            <section class="profile-card">
-                <h2 class="profile-title">Мій профіль і адреси</h2>
-
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="profile-name">Олег Сігма</p>
-                        <p class="profile-id">ID користувача: <span>000234</span></p>
-                    </div>
-                </div>
-
-                <div class="profile-grid">
-                    <div class="field-group">
-                        <label for="email">E-mail</label>
-                        <input id="email" type="email" value="olegsigma@sigmoid.ua">
-                    </div>
-                    <div class="field-group">
-                        <label for="phone">Телефон</label>
-                        <input id="phone" type="tel" value="+380 (097) 007-07-07">
-                    </div>
-                </div>
-
-                <div class="addresses-main">
-                    <p class="addresses-label">Адреси</p>
-                    <div class="address-list-main" id="addressListMain"></div>
-                </div>
-
-                <button class="change-password-btn" type="button">
-                    Змінити пароль
-                </button>
-            </section>
-        </main>
-    </div>
-</div>
-
-<script src="js/profile.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 </html>

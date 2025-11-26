@@ -1,5 +1,7 @@
+@import 'base.css';
+
 /* =========================
-   1. RESET
+   0. RESET
    ========================= */
 * {
     margin: 0;
@@ -8,11 +10,16 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-main) !important;
     background-color: #f9fafb;
-    color: #111827;
+    color: var(--mauve);
     min-height: 100vh;
     line-height: 1.5;
+}
+
+button, input, textarea {
+    font-family: var(--font-main);
+    color: var(--mauve);
 }
 
 .hidden {
@@ -24,17 +31,102 @@ body {
 .text-center { text-align: center; }
 .font-medium { font-weight: 500; }
 
+.my-gradient-bg {
+    background: linear-gradient(150deg, var(--mauve), var(--coral-soft));
+}
+
+.color-mauve {
+    color: var(--mauve);
+}
+
+.color-rosewood {
+    color: var(--rosewood);
+}
+
+.color-coral-soft {
+    color: var(--coral-soft);
+}
+
+.color-peach-bright {
+    color: var(--peach-bright);
+}
+
+.color-amber-soft {
+    color: var(--amber-soft);
+}
+
+.color-lemon-light {
+    color: var(--lemon-light);
+}
+
+.color-teal-muted {
+    color: var(--teal-muted);
+}
+
+.color-black input{
+    color: #111827;
+}
+
+/* =========================
+   1. ФУТЕР
+   ========================= */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+    background-color: #9C6D7B;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    z-index: 1;
+    color: #F9F871;
+    font-size: 1rem;
+}
+
+.footer-left {
+    color: #F9F871;
+    margin: 0 0.5rem;
+}
+
+.footer-svg-left,
+.footer-svg-right {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 0.25rem;
+    flex-shrink: 0; 
+}
+
+.footer-svg-left {
+    left: 0;
+}
+
+.footer-svg-right {
+    right: 0;
+}
+
+.decor-frame {
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+}
+
 /* =========================
    2. ХЕДЕР 
    ========================= */
 
 .header {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
+    background: var(--mauve);
+    border-bottom: none;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: none;
 }
 
 
@@ -64,7 +156,7 @@ body {
 .header-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--lemon-light); 
 }
 .back-home-wrapper {
     display: flex;
@@ -74,13 +166,13 @@ body {
 }
 
 .divider {
-    color: #9ca3af;
+    color: var(--lemon-light);
     font-weight: 300;
     font-size: 18px; 
 }
 
 .back-home-link {
-    color: #0B508D;
+    color: var(--lemon-light); 
     text-decoration: none;
     font-weight: 600;  
     font-size: 16px;   
@@ -88,20 +180,20 @@ body {
 }
 
 .back-home-link:hover {
-    color: #083b68;
+    color: var(--lemon-light);
 }
 
 /* Для головної: логотип,Контакти,юзер */
 .logo {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--lemon-light); 
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .logo:hover {
-    color: #2563eb;
+    color: #ffc; 
 }
 
 
@@ -139,17 +231,17 @@ body {
 .user-name {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #111827;
+    color: var(--lemon-light); 
 }
 
 .user-subtitle {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--lemon-light);
 }
 
 .logout-btn {
     font-size: 0.75rem;
-    color: #2563eb;
+    color: var(--lemon-light); 
     background: none;
     border: none;
     cursor: pointer;
@@ -157,18 +249,16 @@ body {
 }
 
 .logout-btn:hover {
-    color: #1d4ed8;
+    color: #ffc; 
 }
 
 .user-avatar {
     width: 40px;
     height: 40px;
-    background: #e5e7eb;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4b5563;
+    background-image: url('../Assets/user.svg'); 
+    background-size: 60%; 
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* =========================
@@ -183,12 +273,12 @@ body {
 }
 
 .contacts-btn {
-    color: #1f2937;
+    color: var(--lemon-light);
     transition: color 0.2s;
 }
 
 .contacts-btn:hover {
-    color: #2563eb;
+    color: #ffc;
 }
 
 .contacts-panel {
@@ -219,8 +309,6 @@ body {
     font-size: 0.9rem;
 }
 
-
-
 /* =========================
    4. ГОЛОВНА СТОРІНКА (index.html)
    ========================= */
@@ -229,24 +317,24 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    background-color: transparent;
 }
 
-/* Карусель новин */
 .news-carousel {
-    background: #f9fafb;
+    background: transparent; 
     border-radius: 0.5rem;
-    padding: 2rem 1rem;
+    padding: 0; 
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
 }
 
-/* Контейнер з картками */
 .news-wrapper {
     display: flex;
     gap: 1rem;
-    padding: 0 3rem;
+    padding: 2rem 0; 
     overflow: hidden;
+    justify-content: center;
 }
 
 /* Для логіки карусель*/
@@ -267,6 +355,11 @@ body {
     border-radius: 0.5rem;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: 280px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .news-image {
@@ -274,7 +367,7 @@ body {
     background: #e5e7eb;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
-    display: flex;
+    display: flex !important; 
     align-items: center;
     justify-content: center;
 }
@@ -284,13 +377,17 @@ body {
     text-align: center;
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    display: block !important; 
+    color: #111827; 
 }
 
 .news-content {
     font-size: 0.875rem;
     color: #6b7280;
     text-align: center;
+    display: block !important; 
 }
+
 
 /* Стрілки каруселі */
 .carousel-btn {
@@ -306,10 +403,11 @@ body {
     cursor: pointer;
     z-index: 10;
     transition: all 0.2s;
+    color: #4c1d95; 
 }
 
 .carousel-btn:hover {
-    background: #f9fafb;
+    background: #e5e7eb;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
@@ -323,14 +421,15 @@ body {
 
 /* Швидкі дії */
 .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex; 
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .action-btn {
-    background: #d1d5db;
+    flex: 1 1 calc(25% - 0.75rem); 
+    background: var(--mauve);
     padding: 1.5rem 1rem;
     border-radius: 0.5rem;
     text-align: center;
@@ -339,16 +438,17 @@ body {
     border: none;
     transition: background 0.2s;
     font-size: 0.9rem;
+    color: var(--lemon-light); 
 }
 
 .action-btn:hover {
-    background: #9ca3af;
+    background: var(--mauve-50);
 }
 
-/* Нижня сітка */
+
+/* Home Grid (Flexbox) */
 .home-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex; 
     gap: 1rem;
 }
 
@@ -356,6 +456,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex: 1; 
+}
+
+.home-grid > *:not(.grid-left) {
+    flex: 2; 
 }
 
 .info-card {
@@ -393,27 +498,77 @@ body {
 }
 
 .left-btn {
-    flex: 1; 
-    background: white;
-    border: 1px solid #e5e7eb;
+    flex: 1 1 100%; 
+    background-color: #fdf2f8; 
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: 
+        url('../Assets/top.png'), 
+        url('../Assets/bottom.png'), 
+        url('../Assets/left.png'), 
+        url('../Assets/right.png');
+    background-position: 
+        top center, 
+        bottom center, 
+        left center, 
+        right center;
+    background-repeat: 
+        repeat-x, 
+        repeat-x, 
+        repeat-y, 
+        repeat-y;
+    background-size: 
+        auto 10px, 
+        auto 10px, 
+        10px auto, 
+        10px auto; 
+    
     border-radius: 12px;
     padding: 32px;
     font-size: 20px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
+    transition: background-color 0.2s;
+    color: #4c1d95; 
 }
 
 .left-btn:hover {
-    background: #f9fafb;
+    background-color: #fce7f3;
 }
 
 /* FAQ  */
 .faq-container {
     flex: 3;               
-    background: white;
-    border: 1px solid #e5e7eb;
+    background-color: #fdf2f8; 
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: 
+        url('../Assets/top.png'), 
+        url('../Assets/bottom.png'), 
+        url('../Assets/left.png'), 
+        url('../Assets/right.png');
+    background-position: 
+        top center, 
+        bottom center, 
+        left center, 
+        right center;
+    background-repeat: 
+        repeat-x, 
+        repeat-x, 
+        repeat-y, 
+        repeat-y;
+    background-size: 
+        auto 10px, 
+        auto 10px, 
+        10px auto, 
+        10px auto; 
+
+    
     border-radius: 12px;
     padding: 24px;
     display: flex;
@@ -424,10 +579,11 @@ body {
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    color: #4c1d95;
 }
 
 .faq-item {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e9d5ff; 
 }
 
 .faq-question-btn {
@@ -441,10 +597,11 @@ body {
     align-items: center;
     text-align: left;
     transition: background 0.15s;
+    color: #4c1d95; 
 }
 
 .faq-question-btn:hover {
-    background: #f9fafb;
+    background: #fce7f3;
 }
 
 .faq-question-text {
@@ -471,24 +628,64 @@ body {
     display: block;
 }
 
-/* Adaptive */
-@media (max-width: 900px) {
-    .bottom-section {
-        grid-template-columns: 1fr;
-    }
-}
 
-/* Адаптив головної */
-@media (max-width: 768px) {
+/* Адаптив для планшетів (до 1024px) */
+@media (max-width: 1024px) {
     .home-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .action-btn {
+        flex: 1 1 calc(50% - 0.5rem); 
     }
     
-    .quick-actions {
-        grid-template-columns: repeat(2, 1fr);
+    .bottom-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .left-boxes {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .left-boxes > .left-btn {
+        flex: 1 1 calc(50% - 8px);
     }
 }
 
+/* Адаптив для телефонів (до 768px) */
+@media (max-width: 768px) {
+    
+    .action-btn {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+
+    .left-boxes {
+        flex-direction: column;
+    }
+
+    .left-boxes > .left-btn {
+        flex: 1 1 100%;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .left-btn {
+        padding: 24px;
+        font-size: 18px;
+    }
+}
+
+/* Адаптив для найменших екранів (до 640px) */
+@media (max-width: 640px) {
+    .action-btn {
+        flex: 1 1 100%;
+    }
+}
 
 /* =========================
    5. ЛОГІН (login.html)
@@ -507,28 +704,38 @@ body {
     border-radius: 0.5rem;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .login-header {
-    background: white;
+    background: var(--mauve);
     padding: 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: none; 
     border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .login-header h1 {
     font-size: 1.5rem;
     font-weight: 700;
+    color: var(--lemon-light); 
 }
 
 .login-body {
     padding: 2rem;
+    background: white; 
 }
 
 .login-form-wrapper {
-    background: #e5e7eb;
+    background: var(--mauve-30); 
     padding: 2rem;
+    
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.5rem;
 }
 
@@ -548,8 +755,8 @@ body {
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
+    color: var(--mauve);
     margin-bottom: 0.5rem;
-    color: #374151;
 }
 
 .form-input {
@@ -563,8 +770,8 @@ body {
 
 .form-input:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: var(--mauve);
+    box-shadow: 0 0 0 3px var(--mauve-30); 
 }
 
 
@@ -576,32 +783,34 @@ body {
 .forgot-password button {
     background: none;
     border: none;
-    color: #2563eb;
+    color: #dc2626; 
     font-size: 0.875rem;
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .forgot-password button:hover {
-    color: #1d4ed8;
+    color: #b91c1c; 
 }
 
 /* Кнопки */
 .btn-primary {
     width: 100%;
-    background: #2563eb;
-    color: white;
+    background: var(--mauve); 
+    color: var(--lemon-light);
     padding: 0.75rem;
-    border: none;
+    border: none; 
     border-radius: 0.5rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     font-size: 1rem;
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: var(--rosewood); 
+    color: var(--lemon-light);
+    border-color: var(--mauve);
 }
 
 .btn-small {
@@ -649,6 +858,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 1.5rem;
+    min-height: calc(100vh - 160px);
 }
 
 .content-wrapper {
@@ -671,14 +881,14 @@ body {
 .content-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
     margin: 0;
 }
 
 .user-subtitle {
     margin: 0;
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--lemon-light);
 }
 
 /* Сайдбар */
@@ -689,8 +899,15 @@ body {
 
 .sidebar-card,
 .sidebar-content {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.75rem;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -699,7 +916,7 @@ body {
 .sidebar-title {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.75rem;
 }
 
@@ -717,7 +934,7 @@ body {
     padding: 0.6rem 0.75rem;
     border-radius: 0.5rem;
     text-decoration: none;
-    color: #4b5563;
+    color: var(--mauve);
     font-size: 0.875rem;
     transition: background 0.15s, color 0.15s;
 }
@@ -727,12 +944,12 @@ body {
 }
 
 .nav-item:hover {
-    background: #f3f4f6;
+    background: var(--mauve-30);
 }
 
 .nav-item.active {
-    background: #e0edff;
-    color: #1d4ed8;
+    background:  var(--mauve-70);
+    color: var(--lemon-light);
 }
 
 /* Адреси в сайдбарі (рахунки / профіль) */
@@ -760,7 +977,7 @@ body {
 .address-item-sidebar small {
     display: block;
     margin-top: 0.25rem;
-    color: #6b7280;
+    color: var(--mauve);
     font-size: 0.75rem;
 }
 
@@ -788,10 +1005,22 @@ body {
 
 /* універсальні картки */
 .card {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.5rem;
     padding: 1.5rem;
+    margin-bottom: 1.75rem; 
+}
+
+.tab-content .card:last-child {
+    margin-bottom: 0;
 }
 
 .card-header {
@@ -804,7 +1033,7 @@ body {
 .card-title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
 }
 
 /* =========================
@@ -825,7 +1054,7 @@ body {
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
-    background: white;
+    background: var(--mauve-30); 
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -835,9 +1064,16 @@ body {
 }
 
 .account-card.active {
-    background: #eff6ff;
-    border-color: #93c5fd;
+    background: var(--mauve-70);
+    border-color: var(--mauve-70);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.account-card.active .account-type,
+.account-card.active .account-number,
+.account-card.active .account-address,
+.account-card.active .account-icon {
+    color: var(--lemon-light) !important;
 }
 
 .account-card-content {
@@ -848,6 +1084,7 @@ body {
 .account-icon {
     font-size: 2rem;
     line-height: 1;
+    color: var(--mauve);
 }
 
 .account-details {
@@ -865,7 +1102,7 @@ body {
 
 .account-type {
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -873,13 +1110,13 @@ body {
 
 .account-number {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .account-address {
     font-size: 0.75rem;
-    color: #9ca3af;
+    color: var(--mauve);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -949,24 +1186,31 @@ body {
 .status-active,
 .status-success,
 .status-badge.active {
-    background: #d1fae5;
-    color: #065f46;
+    background: var(--teal-muted);
+    color: var(--lemon-light);
 }
 
 .status-badge.debt {
-    background: #fee2e2;
-    color: #991b1b;
+    background: var(--peach-bright);
+    color: var(--mauve);
 }
 
 .status-badge.pending {
-    background: #fef3c7;
-    color: #92400e;
+    background: var(--amber-soft);
+    color: var(--mauve);
 }
 
 /* Верхня частина контенту */
 .content-header {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.7);
+    /* Рамка */
+    border: none;
+    box-shadow: none;
+    background-image: url('../Assets/top.png'), url('../Assets/bottom.png'), url('../Assets/left.png'), url('../Assets/right.png');
+    background-position: top center, bottom center, left center, right center;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+
     border-radius: 0.5rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -983,7 +1227,7 @@ body {
 .content-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
@@ -995,12 +1239,12 @@ body {
 
 .account-number-display {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 /* Таби */
 .tabs-container {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--coral-soft);
 }
 
 .tabs {
@@ -1016,7 +1260,7 @@ body {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #6b7280;
+    color: var(--mauve);
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
@@ -1031,14 +1275,14 @@ body {
 }
 
 .tab.active {
-    color: #2563eb;
-    border-bottom-color: #2563eb;
+    color: var(--coral-soft);
+    border-bottom-color: var(--coral-soft);
 }
 
 .tab-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
 }
 
 /* Сітка в картках */
@@ -1054,14 +1298,13 @@ body {
 
 .field-label {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .field-value {
     font-size: 1rem;
-    font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
 }
 
 /* Платежі, рахунки */
@@ -1077,14 +1320,15 @@ body {
     gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #2563eb;
+    color: var(--coral-soft);
     background: none;
     border: none;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
 .link-btn:hover {
-    color: #1d4ed8;
+    color: var(--rosewood);
 }
 
 .payment-list {
@@ -1107,19 +1351,19 @@ body {
 
 .payment-info p:first-child {
     font-size: 1rem;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .payment-info p:last-child {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 .payment-amount {
     font-size: 1rem;
     font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .bill-item {
@@ -1139,13 +1383,13 @@ body {
 .bill-info p:first-child {
     font-size: 1rem;
     font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .bill-info p:last-child {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 .bill-actions {
@@ -1155,8 +1399,11 @@ body {
 }
 
 .balance-card {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+    border: 1px solid var(--rosewood); 
+    box-shadow: none;
+    background-image: none; 
+    
+    background-color: var(--peach-bright);
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -1164,7 +1411,7 @@ body {
 
 .balance-label {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
@@ -1176,24 +1423,36 @@ body {
 
 /* Чекбокси */
 .checkbox-option {
+    border: 1px solid var(--mauve-30); 
+    box-shadow: none;
+    background-image: none;
+
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding: 1rem;
-    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .checkbox-option:hover {
-    background: #f9fafb;
+    background: var(--mauve-30);
+    border-color: var(--mauve);
+}
+
+.checkbox-option.active {
+    background: var(--mauve-30);
+    border-color: var(--mauve-70);
+    box-shadow: 0 0 0 1px var(--mauve-70); 
 }
 
 .checkbox-option input[type="checkbox"] {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
+    accent-color: var(--mauve);
 }
 
 .checkbox-content {
@@ -1202,18 +1461,22 @@ body {
 
 .checkbox-content p:first-child {
     font-weight: 500;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .checkbox-content p:last-child {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 /* Підсумок і автосписання */
 .total-card {
-    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+    background-image: none;
+    
+    background-color: #f9fafb;
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -1227,18 +1490,21 @@ body {
 
 .total-label {
     font-size: 1rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 .total-amount {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .autopay-card {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    border: 1px solid var(--teal-muted);
+    box-shadow: none;
+    background-image: none;
+
+    background-color: var(--teal-muted);
     border-radius: 0.5rem;
     padding: 1rem;
 }
@@ -1258,36 +1524,49 @@ body {
 .autopay-info svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: #16a34a;
+    color: var(--lemon-light);
 }
 
 .autopay-text p:first-child {
     font-weight: 500;
-    color: #14532d;
+    color: var(--lemon-light);
     margin-bottom: 0.25rem;
 }
 
 .autopay-text p:last-child {
     font-size: 0.875rem;
-    color: #15803d;
+    color: var(--lemon-light);
 }
 
 /* Небезпечні дії */
 .danger-card {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+    border: 1px solid var(--mauve-70);
+    box-shadow: none;
+    background-image: none;
+
+    background-color: var(--mauve-70);
     border-radius: 0.5rem;
     padding: 1.5rem;
 }
 
 .danger-card .card-title {
-    color: #7f1d1d;
+    color: var(--lemon-light);
 }
 
 .danger-card p {
     font-size: 0.875rem;
-    color: #991b1b;
+    color: var(--lemon-light);
     margin-bottom: 1rem;
+}
+
+.danger-card .btn-danger {
+    background: var(--mauve);
+    color: var(--lemon-light);
+}
+
+.danger-card .btn-danger:hover {
+    background: var(--rosewood);
+    color: var(--lemon-light);
 }
 
 .document-item {
@@ -1301,7 +1580,7 @@ body {
 
 .document-item span {
     font-size: 0.875rem;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .select-input {
@@ -1324,7 +1603,7 @@ body {
     padding: 0.75rem;
     border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
-    background-color: #ffffff;
+    background-color: var(--mauve-30);
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -1334,13 +1613,16 @@ body {
 }
 
 .address-btn.active {
-    background-color: #eff6ff;
-    border-color: #93c5fd;
+    background-color: var(--mauve-70);
+}
+
+.address-btn.active p{
+    color: var(--lemon-light);
 }
 
 .address-btn p {
     font-size: 0.875rem;
-    color: #111827;
+    color: var(--mauve);
 }
 
 /* Послуги */
@@ -1357,26 +1639,32 @@ body {
     padding: 0.625rem 0.75rem;
     border: none;
     border-radius: 0.5rem;
-    background-color: #f9fafb;
-    color: #374151;
+    background-color: var(--mauve-30);
+    color: var(--mauve);
     cursor: pointer;
     transition: all 0.2s;
     width: 100%;
     text-align: left;
 }
 
-.service-btn:hover {
-    background-color: #f3f4f6;
-}
-
 .service-btn.active {
-    background-color: #2563eb;
-    color: #ffffff;
+    background-color: var(--mauve-70);
+    color: var(--lemon-light);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .service-icon {
     font-size: 1.125rem;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .service-name {
@@ -1407,20 +1695,20 @@ body {
 .service-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--mauve);
     margin-bottom: 0.5rem;
 }
 
 .service-subtitle {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.5rem;
 }
 
 .unsubmitted-btn {
     padding: 0.5rem 1rem;
-    background-color: #fce7f3;
-    color: #be185d;
+    background-color: var(--peach-bright);
+    color: var(--mauve);
     border: none;
     border-radius: 0.5rem;
     font-size: 0.875rem;
@@ -1431,7 +1719,8 @@ body {
 }
 
 .unsubmitted-btn:hover {
-    background-color: #fbcfe8;
+    background-color: var(--mauve-70);
+    color: var(--lemon-light);
 }
 
 /* Інфо по лічильнику */
@@ -1443,8 +1732,7 @@ body {
 
 .info-card {
     padding: 1rem;
-    background-color: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background-color: var(--mauve-30);
     border-radius: 0.5rem;
 
     display: flex;
@@ -1458,8 +1746,7 @@ body {
 
 
 .info-card-highlight {
-    background-color: #eff6ff;
-    border-color: #bfdbfe;
+    background-color: var(--mauve-70);
 }
 
 .info-card-header {
@@ -1480,13 +1767,13 @@ body {
 
 
 .info-card-highlight .info-card-header p {
-    color: #1e40af;
+    color: var(--lemon-light);
 }
 
 .info-card-value {
     font-size: 1rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .info-card-value-success {
@@ -1496,7 +1783,7 @@ body {
 .info-card-value-large {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: var(--lemon-light);
 }
 .info-card-value-large {
     white-space: nowrap;
@@ -1504,13 +1791,13 @@ body {
 
 .info-card-detail {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-top: 0.25rem;
 }
 
 .info-card-detail-highlight {
     font-size: 0.75rem;
-    color: #2563eb;
+    color: var(--lemon-light);
     margin-top: 0.25rem;
 }
 
@@ -1536,7 +1823,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: #2563eb;
+    color: var(--coral-soft);
     background: none;
     border: none;
     font-size: 0.875rem;
@@ -1552,17 +1839,13 @@ body {
 .btn-submit {
     flex: 1;
     padding: 0.75rem 1rem;
-    background-color: #2563eb;
-    color: #ffffff;
+    background-color: var(--mauve);
+    color: var(--lemon-light);
     border: none;
     border-radius: 0.5rem;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-.btn-submit:hover {
-    background-color: #1d4ed8;
 }
 
 .btn-cancel {
@@ -1592,13 +1875,12 @@ body {
     align-items: flex-start;
     gap: 0.75rem;
     padding: 1rem;
-    background-color: #eff6ff;
-    border: 1px solid #bfdbfe;
+    background-color: var(--mauve-70);
     border-radius: 0.5rem;
 }
 
 .alert-info svg {
-    stroke: #2563eb;
+    stroke: var(--lemon-light);
     flex-shrink: 0;
     margin-top: 0.125rem;
 }
@@ -1606,18 +1888,18 @@ body {
 .alert-title {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #1e3a8a;
+    color: var(--lemon-light)
 }
 
 .alert-value {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: var(--lemon-light);
 }
 
 .alert-date {
     font-size: 0.75rem;
-    color: #1d4ed8;
+    color: var(--lemon-light);
 }
 
 .consumption-info {
@@ -1680,7 +1962,7 @@ body {
 }
 
 .history-table thead tr {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--mauve);
 }
 
 .history-table th {
@@ -1688,22 +1970,22 @@ body {
     text-align: left;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #374151;
+    color: var(--mauve);
 }
 
 .history-table td {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
-    color: #111827;
+    color: var(--mauve);
 }
 
 .history-table tbody tr {
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--mauve);
     transition: background-color 0.2s;
 }
 
 .history-table tbody tr:hover {
-    background-color: #f9fafb;
+    background-color: var(--mauve-30);
 }
 
 .table-footer {
@@ -1715,7 +1997,7 @@ body {
 
 .table-footer-text {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
 }
 
 /* Статистика споживання */
@@ -1729,22 +2011,18 @@ body {
 .stat-card {
     padding: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid;
 }
 
 .stat-card-blue {
-    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    border-color: #bfdbfe;
+    background: rgba(180, 103, 135, 0.5);
 }
 
 .stat-card-green {
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-color: #bbf7d0;
+    background: rgba(71, 129, 125, 0.5);
 }
 
 .stat-card-purple {
-    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-    border-color: #e9d5ff;
+    background: rgba(227, 125, 129, 0.5);
 }
 
 .stat-label {
@@ -1752,18 +2030,18 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.stat-card-blue .stat-label { color: #1d4ed8; }
-.stat-card-green .stat-label { color: #15803d; }
-.stat-card-purple .stat-label { color: #7e22ce; }
+.stat-card-blue .stat-label { color: var(--lemon-light); }
+.stat-card-green .stat-label { color: var(--lemon-light); }
+.stat-card-purple .stat-label { color: var(--lemon-light); }
 
 .stat-value {
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-.stat-card-blue .stat-value { color: #1e3a8a; }
-.stat-card-green .stat-value { color: #14532d; }
-.stat-card-purple .stat-value { color: #581c87; }
+.stat-card-blue .stat-value { color: var(--lemon-light); }
+.stat-card-green .stat-value { color: var(--lemon-light); }
+.stat-card-purple .stat-value { color: var(--lemon-light); }
 
 .stat-trend {
     display: flex;
@@ -1773,12 +2051,12 @@ body {
 }
 
 .stat-trend svg {
-    stroke: #2563eb;
+    stroke: var(--lemon-light);
 }
 
 .stat-trend span {
     font-size: 0.75rem;
-    color: #1d4ed8;
+    color: var(--lemon-light);
 }
 
 .stat-detail {
@@ -1786,8 +2064,8 @@ body {
     margin-top: 0.5rem;
 }
 
-.stat-card-green .stat-detail { color: #15803d; }
-.stat-card-purple .stat-detail { color: #7e22ce; }
+.stat-card-green .stat-detail { color: var(--lemon-light); }
+.stat-card-purple .stat-detail { color:var(--lemon-light); }
 
 /* Нагадування */
 .alert-warning {
@@ -1795,13 +2073,13 @@ body {
     align-items: flex-start;
     gap: 0.75rem;
     padding: 1rem;
-    background-color: #fef3c7;
+    background-color: rgba(255, 200, 103, 0.7);
     border: 1px solid #fde68a;
     border-radius: 0.5rem;
 }
 
 .alert-warning svg {
-    stroke: #d97706;
+    stroke: var(--mauve);
     flex-shrink: 0;
     margin-top: 0.125rem;
 }
@@ -1809,13 +2087,13 @@ body {
 .alert-warning-title {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #78350f;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
 .alert-warning-text {
     font-size: 0.875rem;
-    color: #92400e;
+    color: var(--mauve);
 }
 
 /* =========================
@@ -1823,7 +2101,7 @@ body {
    ========================= */
 
 .profile-card {
-    background: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.75rem;
     border: 1px solid #e5e7eb;
     padding: 1.5rem 1.75rem 1.75rem;
@@ -1843,14 +2121,13 @@ body {
 }
 
 .profile-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 9999px;
-    background: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4b5563;
+    width: 40px;
+    height: 40px;
+    background-image: url('../Assets/user1.svg');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--mauve);
 }
 
 .profile-name {
@@ -1860,7 +2137,7 @@ body {
 
 .profile-id {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-top: 0.15rem;
 }
 
@@ -1874,7 +2151,7 @@ body {
 .field-group label {
     display: block;
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.25rem;
 }
 
@@ -1882,15 +2159,15 @@ body {
     width: 100%;
     padding: 0.55rem 0.75rem;
     border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
+    border: 1px solid var(--mauve-30);
+    background: var(--mauve-30);
     font-size: 0.875rem;
     outline: none;
 }
 
 .field-group input:focus {
-    border-color: #2563eb;
-    background: #ffffff;
+    border-color: var(--mauve);
+    background: var(--mauve-50);
 }
 
 
@@ -1900,7 +2177,7 @@ body {
 
 .addresses-label {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--mauve);
     margin-bottom: 0.5rem;
 }
 
@@ -1911,13 +2188,13 @@ body {
 }
 
 .address-row-static {
-    padding: 0.6rem 0.75rem;     
-    background: #f3f4f6;         
-    border: 1px solid #e5e7eb;   
-    border-radius: 0.5rem;       
-    font-size: 0.9rem;          
-    color: #111827;              
-    cursor: default;            
+    padding: 0.6rem 0.75rem;
+    background: var(--mauve-30);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #111827;
+    cursor: default;
 }
 
 
@@ -1925,14 +2202,12 @@ body {
     margin-top: 0.4rem;
 }
 
-
-
 .change-password-btn {
     margin-top: 0.75rem;
     padding: 0;
     background: none;
     border: none;
-    color: #2563eb;
+    color: var(--coral-soft);
     font-size: 0.875rem;
     cursor: pointer;
 }
